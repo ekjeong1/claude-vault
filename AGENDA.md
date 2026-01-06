@@ -1,26 +1,24 @@
 # Agenda
 
-## Status: Onboarding
+## Status: Active
 
-This is a fresh knowledge base. Let's set it up together.
-
-**How this works:** I'll ask you a few questions to personalize your system. Answer what feels right, skip what doesn't. We can always come back to anything later.
+기본 설정이 완료되었습니다. 이제 시스템을 사용할 준비가 되었습니다!
 
 ---
 
 ## Onboarding Checklist
 
 ### Basics
-- [ ] **Name** — What should I call you?
+- [x] **Name** — What should I call you?
 - [ ] **Location** — Where are you based? (timezone context)
-- [ ] **Language** — What language do you prefer for notes? (or mixed?)
+- [x] **Language** — What language do you prefer for notes? (or mixed?)
 
 ### Life Context
-- [ ] **What you do** — Brief description of your work/main focus
+- [x] **What you do** — Brief description of your work/main focus
 - [ ] **Current priorities** — What's top of mind right now? (1-3 things)
 
 ### Optional
-- [ ] **Communication style** — How do you like me to communicate? (concise/detailed, formal/casual)
+- [x] **Communication style** — How do you like me to communicate? (concise/detailed, formal/casual)
 
 ---
 
@@ -28,11 +26,11 @@ This is a fresh knowledge base. Let's set it up together.
 
 *Filled in during onboarding:*
 
-- **Name:**
-- **Location:**
-- **Language:**
-- **Work:**
-- **Style:**
+- **Name:** Eunkyeong
+- **Location:** (to be added later)
+- **Language:** Korean (한국어)
+- **Work:** Researcher
+- **Style:** Balanced
 
 ---
 
