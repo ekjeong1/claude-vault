@@ -1,0 +1,83 @@
+{
+  "id": "conv-1767746715199-bqqj6ke0k",
+  "sessionId": "9a464e26-f1e8-4a0d-bf6f-e50b7cd526a7",
+  "title": "What files are in my vault?",
+  "createdAt": 1767746715199,
+  "updatedAt": 1767746840374,
+  "messageCount": 2,
+  "metadata": {
+    "totalTokens": 0,
+    "totalCostUsd": 0
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "What files are in my vault?"
+    }
+  ],
+  "displayMessages": [
+    {
+      "id": "msg-1767746715193-p4sjfg8at",
+      "role": "user",
+      "content": "What files are in my vault?",
+      "timestamp": 1767746715193
+    },
+    {
+      "id": "msg-1767746715228-mx9oov6u2",
+      "role": "assistant",
+      "content": "Here's what's in your vault:\n\n## Top-Level Files\n- [[AGENDA.md]] - Your current session context\n- [[CLAUDE.md]] - System instructions\n- [[README.md]] - Repository documentation\n- `2026-01-06.md` - Recent daily note\n- `Untitled.md` - Empty note\n- `Untitled.canvas` - Empty canvas\n\n## Structure (PARA)\n\n**0-Inbox/** - Empty (ready for captures)\n\n**1-Projects/** - Empty (no active projects yet)\n\n**2-Areas/** - All 8 life areas set up with index files:\n- [[2-Areas/Career/0_Career_Index.md]]\n- [[2-Areas/Contribution/0_Contribution_Index.md]]\n- [[2-Areas/Environment/0_Environment_Index.md]]\n- [[2-Areas/Finance/0_Finance_Index.md]]\n- [[2-Areas/Health/0_Health_Index.md]]\n- [[2-Areas/Learning/0_Learning_Index.md]]\n- [[2-Areas/Recreation/0_Recreation_Index.md]]\n- [[2-Areas/Relationships/0_Relationships_Index.md]]\n\n**3-Resources/** - Math notes:\n- [[3-Resources/0_Organizational_Math_Index.md]]\n- [[3-Resources/Rank와 Nullity.md]]\n- [[3-Resources/군론과 대칭성.md]] (Group theory and symmetry)\n- [[3-Resources/그래프 이론과 중심성.md]] (Graph theory and centrality)\n\n**4-Archive/** - Empty\n\n**Daily/** - Empty (no daily notes yet)\n\n**Templates/** - Empty (no templates yet)\n\nYour vault is freshly set up with the PARA structure and has some math resources. Ready to start capturing and organizing!",
+      "timestamp": 1767746840373,
+      "toolCalls": [
+        {
+          "id": "toolu_01NYueNCt5kRCTXd1tJhYFuF",
+          "name": "Bash",
+          "input": {
+            "command": "find . -type f -name \"*.md\" | head -50",
+            "description": "List markdown files in vault"
+          },
+          "status": "success",
+          "startTime": 1767746722544,
+          "endTime": 1767746733921,
+          "output": ""
+        },
+        {
+          "id": "toolu_01T1s7NQMCQPje5LrjHrM9Wp",
+          "name": "Bash",
+          "input": {
+            "command": "ls -la",
+            "description": "List top-level directory contents"
+          },
+          "status": "success",
+          "startTime": 1767746723079,
+          "endTime": 1767746733936,
+          "output": ""
+        },
+        {
+          "id": "toolu_01PHdRr6icWorBEDdaMq1NSQ",
+          "name": "Bash",
+          "input": {
+            "command": "find 0-Inbox 1-Projects 2-Areas 3-Resources 4-Archive Daily Templates -type f -name \"*.md\" 2>/dev/null | sort",
+            "description": "List vault markdown files"
+          },
+          "status": "success",
+          "startTime": 1767746734931,
+          "endTime": 1767746750790,
+          "output": ""
+        },
+        {
+          "id": "toolu_013r7XXxY2PWGKfpm9EshVp8",
+          "name": "Bash",
+          "input": {
+            "command": "ls -1 *.md 2>/dev/null",
+            "description": "List root-level markdown files"
+          },
+          "status": "success",
+          "startTime": 1767746751413,
+          "endTime": 1767746839662,
+          "output": ""
+        }
+      ],
+      "isStreaming": false
+    }
+  ]
+}

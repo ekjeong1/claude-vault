@@ -13,3 +13,4 @@ Thumbs.db
 # Temporary
 *.tmp
 *~
+.obsidian/plugins/vibesidian/data.json

@@ -1,0 +1,36 @@
+{
+  "id": "conv-1767746466017-qcu4aulfr",
+  "sessionId": "conv-1767746466017-qcu4aulfr",
+  "title": "What files are in my vault",
+  "createdAt": 1767746466017,
+  "updatedAt": 1767746484417,
+  "messageCount": 2,
+  "metadata": {
+    "totalTokens": 0,
+    "totalCostUsd": 0
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "What files are in my vault"
+    },
+    {
+      "role": "user",
+      "content": "볼트에 어떤 파일들이 있나요?"
+    }
+  ],
+  "displayMessages": [
+    {
+      "id": "msg-1767746466012-sm4toekud",
+      "role": "user",
+      "content": "What files are in my vault",
+      "timestamp": 1767746466012
+    },
+    {
+      "id": "msg-1767746484414-c86vl2ez5",
+      "role": "user",
+      "content": "볼트에 어떤 파일들이 있나요?",
+      "timestamp": 1767746484414
+    }
+  ]
+}

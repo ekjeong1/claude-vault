@@ -1,0 +1,36 @@
+{
+  "id": "conv-1767744732286-q770xbu4r",
+  "sessionId": "conv-1767744732286-q770xbu4r",
+  "title": "What files are in my vault",
+  "createdAt": 1767744732286,
+  "updatedAt": 1767744761371,
+  "messageCount": 2,
+  "metadata": {
+    "totalTokens": 0,
+    "totalCostUsd": 0
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "What files are in my vault"
+    },
+    {
+      "role": "user",
+      "content": "What files are in my Vault?"
+    }
+  ],
+  "displayMessages": [
+    {
+      "id": "msg-1767744732281-9dk2ff8cn",
+      "role": "user",
+      "content": "What files are in my vault",
+      "timestamp": 1767744732281
+    },
+    {
+      "id": "msg-1767744761369-lo9gjxy7m",
+      "role": "user",
+      "content": "What files are in my Vault?",
+      "timestamp": 1767744761369
+    }
+  ]
+}

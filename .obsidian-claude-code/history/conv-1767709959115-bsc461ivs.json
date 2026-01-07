@@ -1,0 +1,26 @@
+{
+  "id": "conv-1767709959115-bsc461ivs",
+  "sessionId": "conv-1767709959115-bsc461ivs",
+  "title": "내 vault에 어떤 파일들이 있어?",
+  "createdAt": 1767709959115,
+  "updatedAt": 1767709959122,
+  "messageCount": 1,
+  "metadata": {
+    "totalTokens": 0,
+    "totalCostUsd": 0
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "내 vault에 어떤 파일들이 있어?"
+    }
+  ],
+  "displayMessages": [
+    {
+      "id": "msg-1767709959112-sj681bonr",
+      "role": "user",
+      "content": "내 vault에 어떤 파일들이 있어?",
+      "timestamp": 1767709959112
+    }
+  ]
+}

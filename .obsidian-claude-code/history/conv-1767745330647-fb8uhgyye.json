@@ -1,0 +1,26 @@
+{
+  "id": "conv-1767745330647-fb8uhgyye",
+  "sessionId": "conv-1767745330647-fb8uhgyye",
+  "title": "what files are in my vault",
+  "createdAt": 1767745330647,
+  "updatedAt": 1767745330660,
+  "messageCount": 1,
+  "metadata": {
+    "totalTokens": 0,
+    "totalCostUsd": 0
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "what files are in my vault"
+    }
+  ],
+  "displayMessages": [
+    {
+      "id": "msg-1767745330640-01q0zyemw",
+      "role": "user",
+      "content": "what files are in my vault",
+      "timestamp": 1767745330640
+    }
+  ]
+}
