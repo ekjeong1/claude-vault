@@ -1,0 +1,634 @@
+{
+  "id": "conv-1767768296427-bm3qyfaki",
+  "sessionId": "6a1d2158-5f7a-459f-8909-2818df8bf68e",
+  "title": "다음 4개 노트를 3-Resources 폴더에 만들어줘. 각각 간단히만 써줘. 서로 ...",
+  "createdAt": 1767768296427,
+  "updatedAt": 1767770261998,
+  "messageCount": 8,
+  "metadata": {
+    "totalTokens": 0,
+    "totalCostUsd": 0
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "다음 4개 노트를 3-Resources 폴더에 만들어줘. 각각 간단히만 써줘. 서로 링크는 연결하지 마:\n\n1. \"SVD와 PCA\" - 복잡한 KPI를 단순화하는 법\n2. \"마르코프 체인\" - 고객 행동의 전이 확률\n3. \"베이즈 정리\" - 데이터에 따른 전략 업데이트\n4. \"Null Space 응용\" - 비효율 프로세스 제거"
+    },
+    {
+      "role": "user",
+      "content": "방금 만든 4개 노트의 공통점을 찾아서 서로 백링크로 연결해줘"
+    },
+    {
+      "role": "user",
+      "content": "이 4개 노트를 묶는 인덱스 노트를 만들어줘"
+    },
+    {
+      "role": "user",
+      "content": "3-Resources 폴더를 정리해줘:\n1. Part1_조직_인력 폴더 만들고 관련 노트 이동\n2. Part2_프로세스_운영 폴더 만들고 관련 노트 이동\n3. 전체를 묶는 BrainTwin_Master_Index 만들어줘"
+    }
+  ],
+  "displayMessages": [
+    {
+      "id": "msg-1767768296416-xxr1is565",
+      "role": "user",
+      "content": "다음 4개 노트를 3-Resources 폴더에 만들어줘. 각각 간단히만 써줘. 서로 링크는 연결하지 마:\n\n1. \"SVD와 PCA\" - 복잡한 KPI를 단순화하는 법\n2. \"마르코프 체인\" - 고객 행동의 전이 확률\n3. \"베이즈 정리\" - 데이터에 따른 전략 업데이트\n4. \"Null Space 응용\" - 비효율 프로세스 제거",
+      "timestamp": 1767768296416
+    },
+    {
+      "id": "msg-1767768296461-q4gb4k0bh",
+      "role": "assistant",
+      "content": "4개 노트를 3-Resources 폴더에 생성했습니다:\n\n1. **SVD와 PCA.md** - 복잡한 KPI를 단순화하는 법\n2. **마르코프 체인.md** - 고객 행동의 전이 확률\n3. **베이즈 정리.md** - 데이터에 따른 전략 업데이트\n4. **Null Space 응용.md** - 비효율 프로세스 제거\n\n각 노트는 핵심 개념, 비즈니스 적용, 예시, 효과로 간단히 구성했으며, 서로 링크는 연결하지 않았습니다.",
+      "timestamp": 1767768348804,
+      "toolCalls": [
+        {
+          "id": "toolu_018orkfhiTo96iMnj3W6Qskp",
+          "name": "Write",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\SVD와 PCA.md",
+            "content": "# SVD와 PCA\n\n복잡한 KPI를 단순화하는 선형대수 기법.\n\n## 핵심 개념\n\n**특이값 분해(SVD)**와 **주성분 분석(PCA)**는 고차원 데이터를 저차원으로 압축하면서 핵심 정보를 보존한다.\n\n## 비즈니스 적용\n\n- 수십 개의 KPI를 2-3개 핵심 지표로 압축\n- 상관관계 높은 지표들을 하나로 통합\n- 데이터의 '진짜 차원'을 파악해 불필요한 측정 제거\n\n## 예시\n\n매출, 방문자, 전환율, 체류시간 등 10개 지표 → PCA로 \"성장 모멘텀\", \"참여도\" 2개 축으로 단순화\n\n## 효과\n\n의사결정 속도 향상, 대시보드 간소화, 본질에 집중\n"
+          },
+          "status": "success",
+          "startTime": 1767768308633,
+          "endTime": 1767768348172,
+          "output": ""
+        },
+        {
+          "id": "toolu_01Mg6Bbh1ihECQYCGHicaU2c",
+          "name": "Write",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\마르코프 체인.md",
+            "content": "# 마르코프 체인\n\n고객 행동의 전이 확률을 모델링하는 확률론적 도구.\n\n## 핵심 개념\n\n**마르코프 체인**은 현재 상태만으로 다음 상태를 예측하는 확률 모델. \"과거는 현재에 이미 반영되어 있다\"는 전제.\n\n## 비즈니스 적용\n\n- 고객 여정 분석: 신규 → 활성 → 이탈 전이 확률\n- 구독 모델: 유지율, 업그레이드, 다운그레이드 예측\n- 재고 관리: 품절 → 보충 → 과잉 상태 전환\n\n## 예시\n\n신규 고객이 한 달 뒤 활성 상태일 확률 60%, 이탈 확률 40%. 3개월 뒤 상태 분포를 행렬 곱셈으로 계산.\n\n## 효과\n\n장기 고객 가치(LTV) 예측, 개입 시점 파악, 리소스 배분 최적화\n"
+          },
+          "status": "success",
+          "startTime": 1767768314926,
+          "endTime": 1767768348175,
+          "output": ""
+        },
+        {
+          "id": "toolu_01Cpf7hKThycCeLwSW7CnmSr",
+          "name": "Write",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\베이즈 정리.md",
+            "content": "# 베이즈 정리\n\n데이터가 들어올 때마다 믿음을 업데이트하는 확률론적 사고.\n\n## 핵심 개념\n\n**베이즈 정리**는 사전 확률(prior)을 새로운 증거(likelihood)로 갱신해 사후 확률(posterior)을 계산한다.\n\n```\nP(가설|데이터) = P(데이터|가설) × P(가설) / P(데이터)\n```\n\n## 비즈니스 적용\n\n- A/B 테스트 해석: 초기 가설을 데이터로 점진적 업데이트\n- 수요 예측: 과거 패턴에 최신 트렌드 반영\n- 리스크 관리: 사고 확률을 새로운 신호로 조정\n\n## 예시\n\n신제품 성공률 추정치 30% → 초기 판매 데이터 유입 → 베이즈 갱신으로 45%로 상향\n\n## 효과\n\n불확실성 하에서도 합리적 의사결정, 과신 방지, 학습하는 전략\n"
+          },
+          "status": "success",
+          "startTime": 1767768321046,
+          "endTime": 1767768348177,
+          "output": ""
+        },
+        {
+          "id": "toolu_01PxPgThRwtp1WnYWcU4Ac3L",
+          "name": "Write",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Null Space 응용.md",
+            "content": "# Null Space 응용\n\n비효율 프로세스를 발견하고 제거하는 선형대수 관점.\n\n## 핵심 개념\n\n**Null Space**(영공간)는 행렬에 곱해도 0이 되는 벡터들의 집합. \"아무 영향도 주지 못하는 방향\"을 의미.\n\n## 비즈니스 적용\n\n- 업무 중 결과에 기여하지 않는 활동 식별\n- 투입 대비 산출이 0인 프로세스 제거\n- 조직 내 불필요한 보고·회의 최소화\n\n## 예시\n\n10개 활동을 행렬로 모델링 → null space 분석 결과 3개 활동이 성과에 영향 없음 → 해당 활동 중단\n\n## 효과\n\n자원 낭비 제거, 팀 생산성 향상, 핵심 업무 집중\n"
+          },
+          "status": "success",
+          "startTime": 1767768326285,
+          "endTime": 1767768348180,
+          "output": ""
+        }
+      ],
+      "isStreaming": false
+    },
+    {
+      "id": "msg-1767768520025-0jppjwrru",
+      "role": "user",
+      "content": "방금 만든 4개 노트의 공통점을 찾아서 서로 백링크로 연결해줘",
+      "timestamp": 1767768520025
+    },
+    {
+      "id": "msg-1767768520066-r69dokgd9",
+      "role": "assistant",
+      "content": "4개 노트를 백링크로 연결했습니다.\n\n**발견한 공통점:**\n\n1. **데이터 기반 의사결정** - 모두 수학/통계 도구를 비즈니스 맥락에 적용\n2. **복잡성 단순화** - 고차원→저차원, 다변수→핵심 지표\n3. **불필요한 것 제거** - 노이즈, 비효율, 무의미한 변수 식별\n\n각 노트 끝에 \"관련 개념\" 섹션을 추가해 다른 3개 노트로의 양방향 링크를 만들었습니다. Obsidian에서 그래프 뷰로 확인하면 4개가 완전히 연결된 구조를 볼 수 있습니다.",
+      "timestamp": 1767768590637,
+      "toolCalls": [
+        {
+          "id": "toolu_016naTWQLnkLYnp9eycahcLr",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\SVD와 PCA.md"
+          },
+          "status": "success",
+          "startTime": 1767768528570,
+          "endTime": 1767768555098,
+          "output": ""
+        },
+        {
+          "id": "toolu_01XCPseafakbpNmuiV2WzBRu",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\마르코프 체인.md"
+          },
+          "status": "success",
+          "startTime": 1767768528975,
+          "endTime": 1767768555103,
+          "output": ""
+        },
+        {
+          "id": "toolu_01M58diyr1YzKYHeQ1C8ZGh7",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\베이즈 정리.md"
+          },
+          "status": "success",
+          "startTime": 1767768529477,
+          "endTime": 1767768555107,
+          "output": ""
+        },
+        {
+          "id": "toolu_017gz7CS9SbEuALJ9a1haGVn",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Null Space 응용.md"
+          },
+          "status": "success",
+          "startTime": 1767768529854,
+          "endTime": 1767768555111,
+          "output": ""
+        },
+        {
+          "id": "toolu_018V4bEc5hWx2qmCgFa9pwT7",
+          "name": "Edit",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\SVD와 PCA.md",
+            "old_string": "## 효과\n\n의사결정 속도 향상, 대시보드 간소화, 본질에 집중",
+            "new_string": "## 효과\n\n의사결정 속도 향상, 대시보드 간소화, 본질에 집중\n\n## 관련 개념\n\n- [[Null Space 응용]] - 불필요한 요소를 제거하는 또 다른 선형대수 접근\n- [[베이즈 정리]] - 단순화된 지표로 전략을 점진적으로 업데이트\n- [[마르코프 체인]] - 핵심 상태 전이에 집중하는 확률 모델"
+          },
+          "status": "success",
+          "startTime": 1767768558495,
+          "endTime": 1767768589986,
+          "output": ""
+        },
+        {
+          "id": "toolu_015DF7EVNNtNs6E7cXrktDVf",
+          "name": "Edit",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\마르코프 체인.md",
+            "old_string": "## 효과\n\n장기 고객 가치(LTV) 예측, 개입 시점 파악, 리소스 배분 최적화",
+            "new_string": "## 효과\n\n장기 고객 가치(LTV) 예측, 개입 시점 파악, 리소스 배분 최적화\n\n## 관련 개념\n\n- [[베이즈 정리]] - 전이 확률을 새로운 데이터로 업데이트\n- [[SVD와 PCA]] - 복잡한 상태를 핵심 차원으로 단순화\n- [[Null Space 응용]] - 결과에 영향 없는 상태 식별"
+          },
+          "status": "success",
+          "startTime": 1767768561192,
+          "endTime": 1767768589992,
+          "output": ""
+        },
+        {
+          "id": "toolu_01G8ySDSEmn21jacbzXCTa7G",
+          "name": "Edit",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\베이즈 정리.md",
+            "old_string": "## 효과\n\n불확실성 하에서도 합리적 의사결정, 과신 방지, 학습하는 전략",
+            "new_string": "## 효과\n\n불확실성 하에서도 합리적 의사결정, 과신 방지, 학습하는 전략\n\n## 관련 개념\n\n- [[마르코프 체인]] - 확률 모델을 베이즈로 지속적으로 개선\n- [[SVD와 PCA]] - 고차원 데이터를 단순화해 베이즈 추론 효율화\n- [[Null Space 응용]] - 영향 없는 변수를 제거해 모델 정확도 향상"
+          },
+          "status": "success",
+          "startTime": 1767768563841,
+          "endTime": 1767768589998,
+          "output": ""
+        },
+        {
+          "id": "toolu_01JL6CLbfXT6Z93YJd7LiHot",
+          "name": "Edit",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Null Space 응용.md",
+            "old_string": "## 효과\n\n자원 낭비 제거, 팀 생산성 향상, 핵심 업무 집중",
+            "new_string": "## 효과\n\n자원 낭비 제거, 팀 생산성 향상, 핵심 업무 집중\n\n## 관련 개념\n\n- [[SVD와 PCA]] - 차원 축소로 중요한 것만 남기는 보완적 접근\n- [[베이즈 정리]] - 불필요한 가설을 데이터로 제거\n- [[마르코프 체인]] - 의미 없는 상태 전이 식별"
+          },
+          "status": "success",
+          "startTime": 1767768566673,
+          "endTime": 1767768590004,
+          "output": ""
+        }
+      ],
+      "isStreaming": false
+    },
+    {
+      "id": "msg-1767768940977-wv3ie6wca",
+      "role": "user",
+      "content": "이 4개 노트를 묶는 인덱스 노트를 만들어줘",
+      "timestamp": 1767768940977
+    },
+    {
+      "id": "msg-1767768941025-a4ikq6315",
+      "role": "assistant",
+      "content": "인덱스 노트를 생성했습니다: **0_수학적_의사결정_도구_Index.md**\n\n이 인덱스는:\n\n1. **4개 노트를 묶는 주제**: \"비즈니스 복잡성 단순화 + 데이터 기반 의사결정\"\n2. **분류**: 선형대수(SVD/PCA, Null Space) vs 확률론(마르코프, 베이즈)\n3. **실용적 시나리오**: 의사결정 단순화, 고객 분석, 프로세스 최적화\n4. **공통 원칙**: 4개 도구가 공유하는 철학\n\n파일명은 `0_`으로 시작해 폴더에서 가장 먼저 표시되며, Obsidian에서 검색하기 쉽도록 명확한 이름을 사용했습니다.",
+      "timestamp": 1767768978221,
+      "toolCalls": [
+        {
+          "id": "toolu_01MhsRpcNhKrTya4rPDHCHfr",
+          "name": "Write",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\0_수학적_의사결정_도구_Index.md",
+            "content": "# 수학적 의사결정 도구\n\n비즈니스 복잡성을 단순화하고 데이터 기반 의사결정을 지원하는 수학·통계 개념 모음.\n\n## 개요\n\n이 4개 노트는 모두 **복잡한 현실을 단순화**하고 **불필요한 것을 제거**하며 **핵심에 집중**하는 공통 철학을 공유한다.\n\n- **선형대수** (SVD/PCA, Null Space) - 차원 축소, 불필요 제거\n- **확률론** (마르코프 체인, 베이즈 정리) - 불확실성 모델링, 학습\n\n## 노트 목록\n\n### 선형대수 기반\n\n**[[SVD와 PCA]]**\n복잡한 KPI를 단순화하는 차원 축소 기법. 수십 개 지표를 2-3개 핵심 축으로 압축.\n\n**[[Null Space 응용]]**\n비효율 프로세스 제거. 결과에 기여하지 않는 활동을 수학적으로 식별.\n\n### 확률론 기반\n\n**[[마르코프 체인]]**\n고객 행동의 전이 확률 모델링. 상태 간 이동 패턴으로 LTV 예측.\n\n**[[베이즈 정리]]**\n데이터에 따른 전략 업데이트. 새로운 증거로 믿음을 점진적으로 갱신.\n\n## 활용 시나리오\n\n### 의사결정 단순화\n1. [[SVD와 PCA]]로 복잡한 대시보드를 핵심 지표로 압축\n2. [[Null Space 응용]]으로 무의미한 활동 제거\n3. [[베이즈 정리]]로 단순화된 지표 기반 전략 업데이트\n\n### 고객 행동 분석\n1. [[마르코프 체인]]으로 고객 여정 모델링\n2. [[베이즈 정리]]로 전이 확률을 실시간 데이터로 갱신\n3. [[SVD와 PCA]]로 고객 세그먼트를 핵심 차원으로 단순화\n\n### 프로세스 최적화\n1. [[Null Space 응용]]으로 비효율 업무 식별\n2. [[SVD와 PCA]]로 성과 지표의 진짜 동인 파악\n3. [[마르코프 체인]]으로 프로세스 상태 전환 최적화\n\n## 공통 원칙\n\n- **복잡성 단순화**: 본질만 남기고 나머지는 제거\n- **데이터 기반**: 직관이 아닌 수학적 근거\n- **점진적 개선**: 완벽한 모델이 아닌 학습하는 시스템\n- **실용주의**: 이론이 아닌 비즈니스 문제 해결\n"
+          },
+          "status": "success",
+          "startTime": 1767768965506,
+          "endTime": 1767768977644,
+          "output": ""
+        }
+      ],
+      "isStreaming": false
+    },
+    {
+      "id": "msg-1767769823484-ph1tusyqx",
+      "role": "user",
+      "content": "3-Resources 폴더를 정리해줘:\n1. Part1_조직_인력 폴더 만들고 관련 노트 이동\n2. Part2_프로세스_운영 폴더 만들고 관련 노트 이동\n3. 전체를 묶는 BrainTwin_Master_Index 만들어줘",
+      "timestamp": 1767769823484
+    },
+    {
+      "id": "msg-1767769823541-g0l2ykknk",
+      "role": "assistant",
+      "content": "3-Resources 폴더를 성공적으로 정리했습니다!\n\n## 완료된 작업\n\n### 1. Part1_조직_인력 폴더 (7개 노트)\n- 0_Organizational_Math_Index.md\n- Rank와 Nullity.md\n- 그래프 이론과 중심성.md\n- 군론과 대칭성.md\n- Organizational_Analysis_Template.md\n- Organizational_Math_Case_Studies.md\n- Organizational_Math_Visual_Guide.md\n\n**주제**: 조직 구조, 인력 배치, 역할 분석\n\n### 2. Part2_프로세스_운영 폴더 (5개 노트)\n- 0_수학적_의사결정_도구_Index.md\n- SVD와 PCA.md\n- 마르코프 체인.md\n- 베이즈 정리.md\n- Null Space 응용.md\n\n**주제**: 데이터 기반 의사결정, 프로세스 최적화\n\n### 3. BrainTwin_Master_Index 생성\n- 위치: `3-Resources/0_BrainTwin_Master_Index.md`\n- Part 1과 Part 2를 통합하는 마스터 인덱스\n- 문제 유형별 바로가기 제공\n- 횡단 분석 가이드 포함\n- 학습 로드맵 제시\n\n## 링크 구조\n모든 내부 링크는 Obsidian 위키링크로 정상 작동하도록 설정되었습니다. 상대 경로를 사용하므로 각 폴더 내에서 자동으로 연결됩니다.",
+      "timestamp": 1767770261995,
+      "toolCalls": [
+        {
+          "id": "toolu_01Y5yASj5gEUNB5JTFpJycRv",
+          "name": "Bash",
+          "input": {
+            "command": "ls \"C:\\Users\\win10_original\\claude-vault\\3-Resources\"",
+            "description": "List files in 3-Resources folder"
+          },
+          "status": "success",
+          "startTime": 1767769833458,
+          "endTime": 1767769841680,
+          "output": ""
+        },
+        {
+          "id": "toolu_01V6fuEZR3WGnSAKKZtmm9Aq",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\0_Organizational_Math_Index.md"
+          },
+          "status": "success",
+          "startTime": 1767769842101,
+          "endTime": 1767769866209,
+          "output": ""
+        },
+        {
+          "id": "toolu_01A6n9HME1xH8aPbJyhaMbwg",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\군론과 대칭성.md"
+          },
+          "status": "success",
+          "startTime": 1767769843118,
+          "endTime": 1767769866218,
+          "output": ""
+        },
+        {
+          "id": "toolu_01YAurPm5NiEfHmQP1UNKmRJ",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\그래프 이론과 중심성.md"
+          },
+          "status": "success",
+          "startTime": 1767769843300,
+          "endTime": 1767769866228,
+          "output": ""
+        },
+        {
+          "id": "toolu_01Ua4QLoEqJcwnYZDScHe4tp",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Rank와 Nullity.md"
+          },
+          "status": "success",
+          "startTime": 1767769843610,
+          "endTime": 1767769866236,
+          "output": ""
+        },
+        {
+          "id": "toolu_01Td9hyaw1WMLxw4JHBHgpoL",
+          "name": "TodoWrite",
+          "input": {
+            "todos": [
+              {
+                "content": "Create Part1_조직_인력 folder and move related notes",
+                "activeForm": "Creating Part1_조직_인력 folder and moving related notes",
+                "status": "in_progress"
+              },
+              {
+                "content": "Create Part2_프로세스_운영 folder and move related notes",
+                "activeForm": "Creating Part2_프로세스_운영 folder and moving related notes",
+                "status": "pending"
+              },
+              {
+                "content": "Create BrainTwin_Master_Index",
+                "activeForm": "Creating BrainTwin_Master_Index",
+                "status": "pending"
+              },
+              {
+                "content": "Update all internal links in moved files",
+                "activeForm": "Updating all internal links in moved files",
+                "status": "pending"
+              }
+            ]
+          },
+          "status": "success",
+          "startTime": 1767769870150,
+          "endTime": 1767769877627,
+          "output": ""
+        },
+        {
+          "id": "toolu_01B2EgBGGg92wCTk489BFm7G",
+          "name": "Bash",
+          "input": {
+            "command": "mkdir -p \"C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part1_조직_인력\" \"C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part2_프로세스_운영\"",
+            "description": "Create Part1 and Part2 folders"
+          },
+          "status": "success",
+          "startTime": 1767769878974,
+          "endTime": 1767770067901,
+          "output": ""
+        },
+        {
+          "id": "toolu_01VqsCD6hJAfveYUa1YTAarg",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"C:\\Users\\win10_original\\claude-vault\\3-Resources\" && move \"0_Organizational_Math_Index.md\" \"Part1_조직_인력\\\" && move \"Rank와 Nullity.md\" \"Part1_조직_인력\\\" && move \"그래프 이론과 중심성.md\" \"Part1_조직_인력\\\" && move \"군론과 대칭성.md\" \"Part1_조직_인력\\\" && move \"Organizational_Analysis_Template.md\" \"Part1_조직_인력\\\" && move \"Organizational_Math_Case_Studies.md\" \"Part1_조직_인력\\\" && move \"Organizational_Math_Visual_Guide.md\" \"Part1_조직_인력\\\"",
+            "description": "Move Part1 files to folder"
+          },
+          "status": "success",
+          "startTime": 1767770056540,
+          "endTime": 1767770067914,
+          "output": ""
+        },
+        {
+          "id": "toolu_01Jo5BFqSQfMsBG5nNheWs9P",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"C:\\Users\\win10_original\\claude-vault\\3-Resources\" && move \"0_Organizational_Math_Index.md\" \"Part1_조직_인력/\"",
+            "description": "Move Organizational Math Index"
+          },
+          "status": "success",
+          "startTime": 1767770068917,
+          "endTime": 1767770123377,
+          "output": ""
+        },
+        {
+          "id": "toolu_011DAuqx7PbpQPTHjsKdcwXQ",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"C:\\Users\\win10_original\\claude-vault\\3-Resources\" && move \"Rank와 Nullity.md\" \"Part1_조직_인력/\"",
+            "description": "Move Rank와 Nullity"
+          },
+          "status": "success",
+          "startTime": 1767770069677,
+          "endTime": 1767770123388,
+          "output": ""
+        },
+        {
+          "id": "toolu_01WcE16BcP987hshwZxcJumc",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"C:\\Users\\win10_original\\claude-vault\\3-Resources\" && move \"그래프 이론과 중심성.md\" \"Part1_조직_인력/\"",
+            "description": "Move 그래프 이론과 중심성"
+          },
+          "status": "success",
+          "startTime": 1767770070280,
+          "endTime": 1767770123398,
+          "output": ""
+        },
+        {
+          "id": "toolu_013tm3q7i8z3WuTRX9cn5YWx",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"C:\\Users\\win10_original\\claude-vault\\3-Resources\" && move \"군론과 대칭성.md\" \"Part1_조직_인력/\"",
+            "description": "Move 군론과 대칭성"
+          },
+          "status": "success",
+          "startTime": 1767770071120,
+          "endTime": 1767770123407,
+          "output": ""
+        },
+        {
+          "id": "toolu_01VW9KccqfVsASNA52JsJQod",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"C:\\Users\\win10_original\\claude-vault\\3-Resources\" && move \"Organizational_Analysis_Template.md\" \"Part1_조직_인력/\"",
+            "description": "Move Organizational Analysis Template"
+          },
+          "status": "success",
+          "startTime": 1767770071775,
+          "endTime": 1767770123416,
+          "output": ""
+        },
+        {
+          "id": "toolu_018EydgkFi23swVJPFk2Lp6n",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"C:\\Users\\win10_original\\claude-vault\\3-Resources\" && move \"Organizational_Math_Case_Studies.md\" \"Part1_조직_인력/\"",
+            "description": "Move Case Studies"
+          },
+          "status": "success",
+          "startTime": 1767770072686,
+          "endTime": 1767770123426,
+          "output": ""
+        },
+        {
+          "id": "toolu_01FEgvwp4PguqfWnM6HibqtP",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"C:\\Users\\win10_original\\claude-vault\\3-Resources\" && move \"Organizational_Math_Visual_Guide.md\" \"Part1_조직_인력/\"",
+            "description": "Move Visual Guide"
+          },
+          "status": "success",
+          "startTime": 1767770073144,
+          "endTime": 1767770123435,
+          "output": ""
+        },
+        {
+          "id": "toolu_01UjJFWBttDnuFXR1pzQ3dRj",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"C:\\Users\\win10_original\\claude-vault\\3-Resources\" && mv \"0_Organizational_Math_Index.md\" \"Part1_조직_인력/\" && mv \"Rank와 Nullity.md\" \"Part1_조직_인력/\" && mv \"그래프 이론과 중심성.md\" \"Part1_조직_인력/\" && mv \"군론과 대칭성.md\" \"Part1_조직_인력/\" && mv \"Organizational_Analysis_Template.md\" \"Part1_조직_인력/\" && mv \"Organizational_Math_Case_Studies.md\" \"Part1_조직_인력/\" && mv \"Organizational_Math_Visual_Guide.md\" \"Part1_조직_인력/\"",
+            "description": "Move Part1 files to folder"
+          },
+          "status": "success",
+          "startTime": 1767770125139,
+          "endTime": 1767770151726,
+          "output": ""
+        },
+        {
+          "id": "toolu_011dprtbBY1HiRCpeDCQaBV1",
+          "name": "Bash",
+          "input": {
+            "command": "cd \"C:\\Users\\win10_original\\claude-vault\\3-Resources\" && mv \"0_수학적_의사결정_도구_Index.md\" \"Part2_프로세스_운영/\" && mv \"SVD와 PCA.md\" \"Part2_프로세스_운영/\" && mv \"마르코프 체인.md\" \"Part2_프로세스_운영/\" && mv \"베이즈 정리.md\" \"Part2_프로세스_운영/\" && mv \"Null Space 응용.md\" \"Part2_프로세스_운영/\"",
+            "description": "Move Part2 files to folder"
+          },
+          "status": "success",
+          "startTime": 1767770136247,
+          "endTime": 1767770151736,
+          "output": ""
+        },
+        {
+          "id": "toolu_01AHgLZUSWH16jAfVcxTUcuU",
+          "name": "TodoWrite",
+          "input": {
+            "todos": [
+              {
+                "content": "Create Part1_조직_인력 folder and move related notes",
+                "activeForm": "Creating Part1_조직_인력 folder and moving related notes",
+                "status": "completed"
+              },
+              {
+                "content": "Create Part2_프로세스_운영 folder and move related notes",
+                "activeForm": "Creating Part2_프로세스_운영 folder and moving related notes",
+                "status": "completed"
+              },
+              {
+                "content": "Create BrainTwin_Master_Index",
+                "activeForm": "Creating BrainTwin_Master_Index",
+                "status": "in_progress"
+              },
+              {
+                "content": "Update all internal links in moved files",
+                "activeForm": "Updating all internal links in moved files",
+                "status": "pending"
+              }
+            ]
+          },
+          "status": "success",
+          "startTime": 1767770146647,
+          "endTime": 1767770151748,
+          "output": ""
+        },
+        {
+          "id": "toolu_01UtovUeT5k3dgjA8ugw6oEH",
+          "name": "Write",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\0_BrainTwin_Master_Index.md",
+            "content": "# BrainTwin Master Index\n\n비즈니스 복잡성을 수학적으로 단순화하는 통합 프레임워크\n\n---\n\n## 개요\n\n**BrainTwin**은 수학적 사고를 조직과 프로세스 전반에 적용하는 체계입니다. 두 개의 핵심 축으로 구성됩니다:\n\n1. **Part 1: 조직·인력** - 사람, 구조, 역할 분석\n2. **Part 2: 프로세스·운영** - 의사결정, 데이터, 시스템 최적화\n\n---\n\n## Part 1: 조직·인력\n\n**주제**: 조직 구조와 업무 효율성 분석\n\n**위치**: [[Part1_조직_인력/0_Organizational_Math_Index|조직 수학 인덱스]]\n\n### 핵심 개념\n\n| 개념 | 질문 | 링크 |\n|------|------|------|\n| **그래프 이론과 중심성** | 어디가 병목인가? | [[Part1_조직_인력/그래프 이론과 중심성]] |\n| **Rank와 Nullity** | 무엇이 가치를 만드는가? | [[Part1_조직_인력/Rank와 Nullity]] |\n| **군론과 대칭성** | 왜 반복되는가? | [[Part1_조직_인력/군론과 대칭성]] |\n\n### 실전 도구\n\n- [[Part1_조직_인력/Organizational_Analysis_Template|분석 워크시트]]\n- [[Part1_조직_인력/Organizational_Math_Visual_Guide|시각화 가이드]]\n- [[Part1_조직_인력/Organizational_Math_Case_Studies|케이스 스터디]]\n\n### 적용 시나리오\n\n- 조직 병목 지점 식별 및 권한 위임\n- 중복 업무 제거 및 독립적 기여 강화\n- 반복 문제의 구조적 원인 분석\n\n---\n\n## Part 2: 프로세스·운영\n\n**주제**: 데이터 기반 의사결정과 프로세스 최적화\n\n**위치**: [[Part2_프로세스_운영/0_수학적_의사결정_도구_Index|의사결정 도구 인덱스]]\n\n### 핵심 개념\n\n| 개념 | 초점 | 링크 |\n|------|------|------|\n| **SVD와 PCA** | 복잡한 KPI 단순화 | [[Part2_프로세스_운영/SVD와 PCA]] |\n| **Null Space 응용** | 비효율 프로세스 제거 | [[Part2_프로세스_운영/Null Space 응용]] |\n| **마르코프 체인** | 고객 행동 전이 확률 | [[Part2_프로세스_운영/마르코프 체인]] |\n| **베이즈 정리** | 데이터 기반 전략 업데이트 | [[Part2_프로세스_운영/베이즈 정리]] |\n\n### 적용 시나리오\n\n- 대시보드 지표를 핵심 2-3개로 압축\n- 결과에 기여하지 않는 프로세스 식별\n- 고객 여정 및 LTV 예측\n- 실시간 데이터로 전략 점진적 개선\n\n---\n\n## 통합 활용 가이드\n\n### 조직 문제 진단 (Part 1 → Part 1)\n\n1. [[Part1_조직_인력/그래프 이론과 중심성|그래프 이론]]으로 병목 시각화\n2. [[Part1_조직_인력/Rank와 Nullity|Rank-Nullity]]로 중복 업무 정량화\n3. [[Part1_조직_인력/군론과 대칭성|군론]]으로 반복 패턴의 근본 원인 분석\n\n### 프로세스 최적화 (Part 2 → Part 2)\n\n1. [[Part2_프로세스_운영/SVD와 PCA|SVD/PCA]]로 핵심 지표 압축\n2. [[Part2_프로세스_운영/Null Space 응용|Null Space]]로 무의미한 활동 제거\n3. [[Part2_프로세스_운영/베이즈 정리|베이즈]]로 단순화된 지표 기반 전략 업데이트\n\n### 횡단 분석 (Part 1 ↔ Part 2)\n\n**조직에서 프로세스로**:\n- Part 1으로 병목 인력 식별 → Part 2로 해당 인력의 프로세스 최적화\n- Part 1으로 중복 업무 발견 → Part 2로 자동화/단순화 적용\n\n**프로세스에서 조직으로**:\n- Part 2로 비효율 프로세스 식별 → Part 1으로 담당 조직 재설계\n- Part 2로 고객 여정 분석 → Part 1으로 고객 대응 조직 최적화\n\n---\n\n## 공통 철학\n\n모든 개념은 다음 원칙을 공유합니다:\n\n1. **복잡성 단순화** - 본질만 남기고 나머지는 제거\n2. **데이터 기반** - 직관이 아닌 수학적 근거\n3. **구조적 사고** - 표면적 증상이 아닌 근본 원인\n4. **점진적 개선** - 완벽한 모델이 아닌 학습하는 시스템\n5. **실용주의** - 이론이 아닌 비즈니스 문제 해결\n\n---\n\n## 시작 경로\n\n### 처음 사용하는 경우\n\n**조직 문제 진단이 필요하다면**:\n→ [[Part1_조직_인력/0_Organizational_Math_Index|Part 1 시작하기]]\n\n**프로세스 최적화가 필요하다면**:\n→ [[Part2_프로세스_운영/0_수학적_의사결정_도구_Index|Part 2 시작하기]]\n\n### 빠른 참조\n\n**문제 유형별 바로가기**:\n\n- 병목 찾기 → [[Part1_조직_인력/그래프 이론과 중심성]]\n- 중복 업무 제거 → [[Part1_조직_인력/Rank와 Nullity]]\n- 반복 문제 해결 → [[Part1_조직_인력/군론과 대칭성]]\n- KPI 단순화 → [[Part2_프로세스_운영/SVD와 PCA]]\n- 비효율 제거 → [[Part2_프로세스_운영/Null Space 응용]]\n- 고객 행동 예측 → [[Part2_프로세스_운영/마르코프 체인]]\n- 전략 업데이트 → [[Part2_프로세스_운영/베이즈 정리]]\n\n---\n\n## 학습 로드맵\n\n### 1단계: 개념 이해 (1-2주)\n- Part 1과 Part 2의 각 핵심 개념 노트 읽기\n- 케이스 스터디로 실제 적용 사례 학습\n\n### 2단계: 실전 적용 (2-4주)\n- 작은 팀/프로젝트로 워크시트 활용해 분석\n- 시각화 도구로 결과 정리 및 공유\n\n### 3단계: 통합 활용 (진행 중)\n- Part 1과 Part 2를 횡단하며 종합 분석\n- 반복적 개선으로 조직 전체에 내재화\n\n---\n\n#resource #braintwin #systems-thinking #organizational-math #decision-making\n"
+          },
+          "status": "success",
+          "startTime": 1767770186764,
+          "endTime": 1767770201319,
+          "output": ""
+        },
+        {
+          "id": "toolu_01KBGGgJJpaPUCEhJDMLWzA3",
+          "name": "TodoWrite",
+          "input": {
+            "todos": [
+              {
+                "content": "Create Part1_조직_인력 folder and move related notes",
+                "activeForm": "Creating Part1_조직_인력 folder and moving related notes",
+                "status": "completed"
+              },
+              {
+                "content": "Create Part2_프로세스_운영 folder and move related notes",
+                "activeForm": "Creating Part2_프로세스_운영 folder and moving related notes",
+                "status": "completed"
+              },
+              {
+                "content": "Create BrainTwin_Master_Index",
+                "activeForm": "Creating BrainTwin_Master_Index",
+                "status": "completed"
+              },
+              {
+                "content": "Update all internal links in moved files",
+                "activeForm": "Updating all internal links in moved files",
+                "status": "in_progress"
+              }
+            ]
+          },
+          "status": "success",
+          "startTime": 1767770196378,
+          "endTime": 1767770201330,
+          "output": ""
+        },
+        {
+          "id": "toolu_01KUknEfLcZwzR97YoZ4PmLY",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part1_조직_인력\\0_Organizational_Math_Index.md"
+          },
+          "status": "success",
+          "startTime": 1767770201821,
+          "endTime": 1767770215671,
+          "output": ""
+        },
+        {
+          "id": "toolu_01CbfZzaMw5P8xqWakUtSdJy",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part2_프로세스_운영\\0_수학적_의사결정_도구_Index.md"
+          },
+          "status": "success",
+          "startTime": 1767770216111,
+          "endTime": 1767770225477,
+          "output": ""
+        },
+        {
+          "id": "toolu_01162BqhNhkQdo1UgFAc1eYY",
+          "name": "Bash",
+          "input": {
+            "command": "ls -la \"C:\\Users\\win10_original\\claude-vault\\3-Resources\"",
+            "description": "Verify final 3-Resources structure"
+          },
+          "status": "success",
+          "startTime": 1767770226235,
+          "endTime": 1767770247896,
+          "output": ""
+        },
+        {
+          "id": "toolu_01JvJJidh37Mcwq5yRgs3aq1",
+          "name": "Bash",
+          "input": {
+            "command": "ls \"C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part1_조직_인력\"",
+            "description": "List Part1 contents"
+          },
+          "status": "success",
+          "startTime": 1767770235887,
+          "endTime": 1767770247907,
+          "output": ""
+        },
+        {
+          "id": "toolu_0147ZgSwdi3rBRSucm9g3hHV",
+          "name": "Bash",
+          "input": {
+            "command": "ls \"C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part2_프로세스_운영\"",
+            "description": "List Part2 contents"
+          },
+          "status": "success",
+          "startTime": 1767770236407,
+          "endTime": 1767770247917,
+          "output": ""
+        },
+        {
+          "id": "toolu_016QcexmL28BtxsBRCMh9n1G",
+          "name": "TodoWrite",
+          "input": {
+            "todos": [
+              {
+                "content": "Create Part1_조직_인력 folder and move related notes",
+                "activeForm": "Creating Part1_조직_인력 folder and moving related notes",
+                "status": "completed"
+              },
+              {
+                "content": "Create Part2_프로세스_운영 folder and move related notes",
+                "activeForm": "Creating Part2_프로세스_운영 folder and moving related notes",
+                "status": "completed"
+              },
+              {
+                "content": "Create BrainTwin_Master_Index",
+                "activeForm": "Creating BrainTwin_Master_Index",
+                "status": "completed"
+              },
+              {
+                "content": "Update all internal links in moved files",
+                "activeForm": "Updating all internal links in moved files",
+                "status": "completed"
+              }
+            ]
+          },
+          "status": "success",
+          "startTime": 1767770251223,
+          "endTime": 1767770261523,
+          "output": ""
+        }
+      ],
+      "isStreaming": false
+    }
+  ]
+}

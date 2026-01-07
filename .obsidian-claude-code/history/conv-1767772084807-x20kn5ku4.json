@@ -1,0 +1,360 @@
+{
+  "id": "conv-1767772084807-x20kn5ku4",
+  "sessionId": "73e2890d-74bb-4ff3-9ecf-56fac8f77086",
+  "title": "다음 4개 노트를 3-Resources/Part3_전략_경쟁 폴더에 만들어줘. 각각 ...",
+  "createdAt": 1767772084807,
+  "updatedAt": 1767773804684,
+  "messageCount": 8,
+  "metadata": {
+    "totalTokens": 0,
+    "totalCostUsd": 0
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "다음 4개 노트를 3-Resources/Part3_전략_경쟁 폴더에 만들어줘. 각각 간단히만 써줘. 서로 링크는 연결하지 마:\n\n1. \"내쉬 균형\" - 교착 상태와 메타 전략\n2. \"포트폴리오 이론\" - 리스크 분산의 본질\n3. \"Phase Transition\" - 임계점 돌파와 성장\n4. \"행동경제학\" - Prospect Theory & Anchoring"
+    },
+    {
+      "role": "user",
+      "content": "방금 만든 4개 노트의 공통점을 찾아서 서로 백링크로 연결해줘"
+    },
+    {
+      "role": "user",
+      "content": "이 4개 노트를 묶는 인덱스 노트를 만들어줘"
+    },
+    {
+      "role": "user",
+      "content": "Part3_전략_경쟁 폴더의 4개 노트를 분석하고 더 나은 구조를 제안해줘"
+    }
+  ],
+  "displayMessages": [
+    {
+      "id": "msg-1767772084794-p5gfi0jdd",
+      "role": "user",
+      "content": "다음 4개 노트를 3-Resources/Part3_전략_경쟁 폴더에 만들어줘. 각각 간단히만 써줘. 서로 링크는 연결하지 마:\n\n1. \"내쉬 균형\" - 교착 상태와 메타 전략\n2. \"포트폴리오 이론\" - 리스크 분산의 본질\n3. \"Phase Transition\" - 임계점 돌파와 성장\n4. \"행동경제학\" - Prospect Theory & Anchoring",
+      "timestamp": 1767772084794
+    },
+    {
+      "id": "msg-1767772084847-be1jiptz0",
+      "role": "assistant",
+      "content": "4개 노트를 `3-Resources/Part3_전략_경쟁` 폴더에 생성했습니다:\n\n1. **내쉬 균형.md** - 교착 상태, 안정성, 메타 전략 중심으로 작성\n2. **포트폴리오 이론.md** - 분산 효과, 효율적 프론티어, 리스크 관리\n3. **Phase Transition.md** - 임계점, 비선형성, tipping point 전략\n4. **행동경제학.md** - Prospect Theory, Anchoring, 주요 편향 정리\n\n각 노트는 독립적으로 작성했으며 서로 링크하지 않았습니다. 태그를 추가해서 나중에 검색과 연결이 쉽도록 했습니다.",
+      "timestamp": 1767772130026,
+      "toolCalls": [
+        {
+          "id": "toolu_01Xp4zJ9k9GU2NbZJAhvzgqA",
+          "name": "mcp__obsidian__create_note",
+          "input": {
+            "path": "3-Resources/Part3_전략_경쟁/내쉬 균형.md",
+            "content": "# 내쉬 균형\n\n## 정의\n\n각 참여자가 다른 참여자의 전략을 고정으로 간주할 때, 자신의 전략을 바꿔도 더 나은 결과를 얻을 수 없는 상태.\n\n## 핵심 개념\n\n- **교착 상태**: 누구도 먼저 움직이지 않는 균형점\n- **안정성**: 일방적 이탈이 불리한 구조\n- **예측 가능성**: 합리적 행위자들의 수렴점\n\n## 메타 전략\n\n- 균형을 깨는 방법: 게임 구조 자체를 변경\n- 협력적 균형 유도: 반복 게임, 신호, 약속\n- 비합리성의 전략적 활용\n\n## 사례\n\n- 과점 시장의 가격 경쟁\n- 군비 경쟁\n- 표준 전쟁\n\n---\n\n#strategy #game-theory #economics\n",
+            "openAfterCreate": false
+          },
+          "status": "success",
+          "startTime": 1767772097752,
+          "endTime": 1767772129380,
+          "output": ""
+        },
+        {
+          "id": "toolu_01FDPvquo5fsfopKMyhXoVEg",
+          "name": "mcp__obsidian__create_note",
+          "input": {
+            "path": "3-Resources/Part3_전략_경쟁/포트폴리오 이론.md",
+            "content": "# 포트폴리오 이론\n\n## 정의\n\n위험과 수익의 관계를 최적화하기 위해 자산을 분산 배치하는 이론. 마코위츠(Markowitz)의 현대 포트폴리오 이론(MPT).\n\n## 핵심 원리\n\n- **분산 효과**: 상관관계가 낮은 자산을 결합하면 전체 리스크 감소\n- **효율적 프론티어**: 동일 리스크에서 최대 수익, 또는 동일 수익에서 최소 리스크\n- **샤프 비율**: 위험 대비 초과 수익률 측정\n\n## 리스크 분산의 본질\n\n- 단순 다각화 ≠ 진정한 분산\n- 상관관계(correlation)가 핵심\n- 시스템 리스크는 분산 불가능\n\n## 적용 영역\n\n- 투자 포트폴리오 구성\n- 사업 다각화 전략\n- 프로젝트 배분\n- 시간 배분\n\n---\n\n#finance #risk #strategy #diversification\n",
+            "openAfterCreate": false
+          },
+          "status": "success",
+          "startTime": 1767772104225,
+          "endTime": 1767772129384,
+          "output": ""
+        },
+        {
+          "id": "toolu_01LpGJTd4LsYAJuEyRMik37W",
+          "name": "mcp__obsidian__create_note",
+          "input": {
+            "path": "3-Resources/Part3_전략_경쟁/Phase Transition.md",
+            "content": "# Phase Transition\n\n## 정의\n\n물리학 개념. 시스템이 임계점(critical point)을 넘는 순간 상태가 급격히 변화하는 현象. 물이 끓거나 얼음이 녹는 것처럼.\n\n## 핵심 특징\n\n- **비선형성**: 작은 입력 변화가 거대한 출력 변화 유발\n- **임계 질량**: 특정 지점까지는 변화 없다가 갑자기 전환\n- **불가역성**: 한번 넘으면 되돌리기 어려움\n\n## 임계점 돌파 전략\n\n- 초기엔 느리게, 임계점 이후 급성장\n- \"Tipping Point\" 식별이 핵심\n- 집중 투입 타이밍\n\n## 적용 사례\n\n- 네트워크 효과 (critical mass of users)\n- 바이럴 확산\n- 시장 점유율 전환점\n- 조직 문화 변화\n- 기술 도입 곡선\n\n## 관련 개념\n\n- S-curve 성장\n- Crossing the Chasm\n- 10x 변화\n\n---\n\n#growth #strategy #systems #nonlinear\n",
+            "openAfterCreate": false
+          },
+          "status": "success",
+          "startTime": 1767772112080,
+          "endTime": 1767772129386,
+          "output": ""
+        },
+        {
+          "id": "toolu_01JqtCCVWsrcT3WN2NMaU2Qi",
+          "name": "mcp__obsidian__create_note",
+          "input": {
+            "path": "3-Resources/Part3_전략_경쟁/행동경제학.md",
+            "content": "# 행동경제학\n\n## 정의\n\n인간이 실제로 어떻게 의사결정하는지를 연구하는 경제학 분야. 전통 경제학의 \"합리적 인간\" 가정에 도전.\n\n## Prospect Theory (전망 이론)\n\n카너먼(Kahneman) & 트버스키(Tversky)\n\n- **손실 회피**: 손실의 고통 > 동일 크기 이득의 기쁨 (약 2배)\n- **참조점 의존성**: 절대값이 아니라 기준점 대비 변화로 평가\n- **확률 왜곡**: 낮은 확률 과대평가, 높은 확률 과소평가\n\n### 실전 함의\n\n- 프레이밍 효과: \"90% 성공\" vs \"10% 실패\"\n- Sunk cost fallacy\n- Endowment effect\n\n## Anchoring (닻 내림 효과)\n\n처음 제시된 정보가 이후 판단의 기준점이 됨.\n\n- 가격 협상의 첫 제안\n- 초기 인상\n- 숫자의 프레임\n\n### 활용\n\n- 첫 제안을 전략적으로 설정\n- 비교 대상 제시로 인식 조작\n- 디폴트 옵션 설계\n\n## 기타 주요 편향\n\n- Confirmation bias\n- Availability heuristic\n- Status quo bias\n- Herd behavior\n\n---\n\n#psychology #economics #decision-making #behavioral\n",
+            "openAfterCreate": false
+          },
+          "status": "success",
+          "startTime": 1767772122608,
+          "endTime": 1767772129389,
+          "output": ""
+        }
+      ],
+      "isStreaming": false
+    },
+    {
+      "id": "msg-1767773181077-lwfb5jg62",
+      "role": "user",
+      "content": "방금 만든 4개 노트의 공통점을 찾아서 서로 백링크로 연결해줘",
+      "timestamp": 1767773181077
+    },
+    {
+      "id": "msg-1767773181126-vsz71szkg",
+      "role": "assistant",
+      "content": "완료했습니다! 4개 노트를 백링크로 연결했습니다.\n\n## 연결 전략\n\n**공통 주제**:\n- 전략적 의사결정과 불확실성 관리\n- 합리성 vs 실제 행동의 괴리\n- 균형/최적점과 그것을 깨는 전략\n- 리스크와 비선형성\n\n**주요 연결점**:\n\n1. **내쉬 균형** ↔ 다른 노트\n   - 비합리성 활용 → 행동경제학\n   - 균형 깨기 → Phase Transition\n   - 다수 전략 조합 → 포트폴리오\n\n2. **포트폴리오 이론** ↔ 다른 노트\n   - 손실 회피 편향 → 행동경제학\n   - 리밸런싱 타이밍 → Phase Transition\n   - 전략 분산 → 내쉬 균형\n\n3. **Phase Transition** ↔ 다른 노트\n   - 균형 깨기 → 내쉬 균형\n   - 군중 심리 → 행동경제학\n   - 집중 vs 분산 → 포트폴리오\n\n4. **행동경제학** ↔ 다른 노트\n   - 비합리성 전략화 → 내쉬 균형\n   - 편향된 리스크 인식 → 포트폴리오\n   - 임계점 가속 → Phase Transition\n\n각 노트에 \"관련 개념\" 섹션을 추가하고, 내용 중 자연스러운 지점에도 인라인 링크를 삽입했습니다.",
+      "timestamp": 1767773306561,
+      "toolCalls": [
+        {
+          "id": "toolu_016QwRBMJcrPSCY1cgFUeoAt",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\내쉬 균형.md"
+          },
+          "status": "success",
+          "startTime": 1767773187883,
+          "endTime": 1767773215024,
+          "output": ""
+        },
+        {
+          "id": "toolu_01MRFUisrjS74gwvQEpKhk7N",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\포트폴리오 이론.md"
+          },
+          "status": "success",
+          "startTime": 1767773188450,
+          "endTime": 1767773215029,
+          "output": ""
+        },
+        {
+          "id": "toolu_0198Cghp3zHttwQDDrXsE3Nk",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\Phase Transition.md"
+          },
+          "status": "success",
+          "startTime": 1767773188917,
+          "endTime": 1767773215033,
+          "output": ""
+        },
+        {
+          "id": "toolu_01T9zRfMY7pWBbcsxJ8eTLPW",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\행동경제학.md"
+          },
+          "status": "success",
+          "startTime": 1767773189454,
+          "endTime": 1767773215038,
+          "output": ""
+        },
+        {
+          "id": "toolu_01Rqq96D5H5rfsoeoHBjq13M",
+          "name": "Edit",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\내쉬 균형.md",
+            "old_string": "## 메타 전략\n\n- 균형을 깨는 방법: 게임 구조 자체를 변경\n- 협력적 균형 유도: 반복 게임, 신호, 약속\n- 비합리성의 전략적 활용",
+            "new_string": "## 메타 전략\n\n- 균형을 깨는 방법: 게임 구조 자체를 변경\n- 협력적 균형 유도: 반복 게임, 신호, 약속\n- 비합리성의 전략적 활용 → [[행동경제학]]의 편향 활용"
+          },
+          "status": "success",
+          "startTime": 1767773217408,
+          "endTime": 1767773305858,
+          "output": ""
+        },
+        {
+          "id": "toolu_018dgZ7eCayxu88GmfWTRREM",
+          "name": "Edit",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\내쉬 균형.md",
+            "old_string": "---\n\n#strategy #game-theory #economics",
+            "new_string": "## 관련 개념\n\n- [[Phase Transition]] - 균형을 깨고 새로운 상태로 전환하는 임계점\n- [[포트폴리오 이론]] - 다수 균형 전략의 리스크 분산\n- [[행동경제학]] - 합리성 가정의 한계와 실제 행동\n\n---\n\n#strategy #game-theory #economics"
+          },
+          "status": "success",
+          "startTime": 1767773220213,
+          "endTime": 1767773305866,
+          "output": ""
+        },
+        {
+          "id": "toolu_01YHHWriU8vHVjbAQRqsXfJR",
+          "name": "Edit",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\포트폴리오 이론.md",
+            "old_string": "## 리스크 분산의 본질\n\n- 단순 다각화 ≠ 진정한 분산\n- 상관관계(correlation)가 핵심\n- 시스템 리스크는 분산 불가능",
+            "new_string": "## 리스크 분산의 본질\n\n- 단순 다각화 ≠ 진정한 분산\n- 상관관계(correlation)가 핵심\n- 시스템 리스크는 분산 불가능\n- [[내쉬 균형]]처럼 여러 전략의 조합으로 안정성 확보"
+          },
+          "status": "success",
+          "startTime": 1767773239431,
+          "endTime": 1767773305872,
+          "output": ""
+        },
+        {
+          "id": "toolu_0132MRgH7V9SW8Byy5iQhFqT",
+          "name": "Edit",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\포트폴리오 이론.md",
+            "old_string": "---\n\n#finance #risk #strategy #diversification",
+            "new_string": "## 관련 개념\n\n- [[행동경제학]] - 실제 투자자는 손실 회피 편향으로 비최적 포트폴리오 구성\n- [[Phase Transition]] - 포트폴리오 리밸런싱의 임계점 타이밍\n- [[내쉬 균형]] - 경쟁 전략의 분산 배치\n\n---\n\n#finance #risk #strategy #diversification"
+          },
+          "status": "success",
+          "startTime": 1767773241896,
+          "endTime": 1767773305878,
+          "output": ""
+        },
+        {
+          "id": "toolu_01WghkvsN81UBwjtEU5yocmS",
+          "name": "Edit",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\Phase Transition.md",
+            "old_string": "## 임계점 돌파 전략\n\n- 초기엔 느리게, 임계점 이후 급성장\n- \"Tipping Point\" 식별이 핵심\n- 집중 투입 타이밍",
+            "new_string": "## 임계점 돌파 전략\n\n- 초기엔 느리게, 임계점 이후 급성장\n- \"Tipping Point\" 식별이 핵심\n- 집중 투입 타이밍 → [[포트폴리오 이론]]의 리스크 관리와 대비"
+          },
+          "status": "success",
+          "startTime": 1767773256066,
+          "endTime": 1767773305884,
+          "output": ""
+        },
+        {
+          "id": "toolu_01C9kLgvWKz9PjzmfPB9i34X",
+          "name": "Edit",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\Phase Transition.md",
+            "old_string": "## 관련 개념\n\n- S-curve 성장\n- Crossing the Chasm\n- 10x 변화\n\n---\n\n#growth #strategy #systems #nonlinear",
+            "new_string": "## 관련 개념\n\n- S-curve 성장\n- Crossing the Chasm\n- 10x 변화\n- [[내쉬 균형]] - 안정된 균형을 깨고 새로운 상태로 전환\n- [[행동경제학]] - 군중 심리(Herd behavior)가 임계점 통과 가속\n- [[포트폴리오 이론]] - 집중 vs 분산의 타이밍 전략\n\n---\n\n#growth #strategy #systems #nonlinear"
+          },
+          "status": "success",
+          "startTime": 1767773259637,
+          "endTime": 1767773305890,
+          "output": ""
+        },
+        {
+          "id": "toolu_01AaNwKAbaXKPewCX3kJmFRJ",
+          "name": "Edit",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\행동경제학.md",
+            "old_string": "## Prospect Theory (전망 이론)\n\n카너먼(Kahneman) & 트버스키(Tversky)\n\n- **손실 회피**: 손실의 고통 > 동일 크기 이득의 기쁨 (약 2배)\n- **참조점 의존성**: 절대값이 아니라 기준점 대비 변화로 평가\n- **확률 왜곡**: 낮은 확률 과대평가, 높은 확률 과소평가",
+            "new_string": "## Prospect Theory (전망 이론)\n\n카너먼(Kahneman) & 트버스키(Tversky)\n\n- **손실 회피**: 손실의 고통 > 동일 크기 이득의 기쁨 (약 2배) → [[포트폴리오 이론]]의 리스크 과대평가\n- **참조점 의존성**: 절대값이 아니라 기준점 대비 변화로 평가\n- **확률 왜곡**: 낮은 확률 과대평가, 높은 확률 과소평가"
+          },
+          "status": "success",
+          "startTime": 1767773278651,
+          "endTime": 1767773305895,
+          "output": ""
+        },
+        {
+          "id": "toolu_01W9DjSMrdRc65DfHsuYexhA",
+          "name": "Edit",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\행동경제학.md",
+            "old_string": "## 기타 주요 편향\n\n- Confirmation bias\n- Availability heuristic\n- Status quo bias\n- Herd behavior\n\n---\n\n#psychology #economics #decision-making #behavioral",
+            "new_string": "## 기타 주요 편향\n\n- Confirmation bias\n- Availability heuristic\n- Status quo bias\n- Herd behavior → [[Phase Transition]] 가속화\n\n## 관련 개념\n\n- [[내쉬 균형]] - 합리성 가정의 한계, 비합리성을 전략적으로 활용\n- [[포트폴리오 이론]] - 이론적 최적 vs 실제 투자자의 편향된 선택\n- [[Phase Transition]] - 군중 심리가 임계점 돌파를 촉진\n\n---\n\n#psychology #economics #decision-making #behavioral"
+          },
+          "status": "success",
+          "startTime": 1767773282739,
+          "endTime": 1767773305900,
+          "output": ""
+        }
+      ],
+      "isStreaming": false
+    },
+    {
+      "id": "msg-1767773611481-959df3nry",
+      "role": "user",
+      "content": "이 4개 노트를 묶는 인덱스 노트를 만들어줘",
+      "timestamp": 1767773611481
+    },
+    {
+      "id": "msg-1767773611543-blgh4sh2j",
+      "role": "assistant",
+      "content": "인덱스 노트를 만들어서 Obsidian에서 열었습니다.\n\n**0_전략_경쟁_Index.md**의 구조:\n\n1. **개요** - 4개 개념의 공통 주제\n2. **핵심 개념** - 각 노트 소개와 핵심 질문\n3. **개념 간 연결** - 시각적 다이어그램과 4가지 연결 패턴:\n   - 합리성 vs 비합리성\n   - 안정 vs 전환\n   - 집중 vs 분산\n   - 이론 vs 실제\n4. **적용 영역** - 비즈니스, 투자, 성장, 협상, 조직\n5. **실전 질문** - 의사결정 시 자문할 체크리스트\n\n인덱스가 단순한 목록이 아니라 개념들 간의 관계와 실전 활용 방법을 보여주는 가이드 역할을 하도록 구성했습니다.",
+      "timestamp": 1767773652474,
+      "toolCalls": [
+        {
+          "id": "toolu_01BHkXYxMRxDkYZeiADo91xD",
+          "name": "mcp__obsidian__create_note",
+          "input": {
+            "path": "3-Resources/Part3_전략_경쟁/0_전략_경쟁_Index.md",
+            "content": "# 전략과 경쟁 개념 모음\n\n전략적 의사결정, 경쟁 상황, 불확실성 관리에 대한 핵심 이론들.\n\n## 개요\n\n이 폴더는 합리성과 비합리성, 균형과 전환, 리스크와 최적화를 다루는 4가지 개념을 담고 있다. 각 개념은 독립적이지만 서로 연결되어 있다.\n\n## 핵심 개념\n\n### [[내쉬 균형]]\n게임 이론의 핵심. 아무도 먼저 움직이지 않는 교착 상태와 그것을 깨는 메타 전략.\n\n**핵심 질문**: \n- 어떻게 안정적 균형을 만들 것인가?\n- 어떻게 균형을 깨고 유리한 위치로 이동할 것인가?\n\n### [[포트폴리오 이론]]\n리스크와 수익의 최적화. 진정한 분산이란 무엇인가.\n\n**핵심 질문**:\n- 어떻게 리스크를 관리할 것인가?\n- 집중과 분산의 균형을 어떻게 잡을 것인가?\n\n### [[Phase Transition]]\n임계점 돌파와 비선형 성장. 작은 변화가 거대한 전환을 만드는 순간.\n\n**핵심 질문**:\n- 언제 임계점이 오는가?\n- 어떻게 tipping point를 만들고 넘을 것인가?\n\n### [[행동경제학]]\n인간의 실제 의사결정. Prospect Theory, Anchoring, 그리고 편향들.\n\n**핵심 질문**:\n- 사람들은 실제로 어떻게 행동하는가?\n- 편향을 어떻게 활용하거나 극복할 것인가?\n\n## 개념 간 연결\n\n```\n합리성 가정 ───────────→ 실제 행동\n   ↓                        ↓\n내쉬 균형              행동경제학\n   ↓                        ↓\n균형 깨기 ←──────────→ 편향 활용\n   ↓                        ↓\nPhase Transition  ←─→  군중 심리\n   ↑                        ↑\n임계점 타이밍 ←───────→ 리스크 관리\n   ↑                        ↑\n집중 전략              포트폴리오 이론\n```\n\n### 주요 연결 패턴\n\n1. **합리성 vs 비합리성**\n   - [[내쉬 균형]]: 합리적 행위자 가정\n   - [[행동경제학]]: 실제 인간의 편향\n   - 전략: 비합리성을 전략적으로 활용\n\n2. **안정 vs 전환**\n   - [[내쉬 균형]]: 안정적 교착 상태\n   - [[Phase Transition]]: 균형을 깨고 급격한 전환\n   - 전략: 언제 안정을 유지하고, 언제 깰 것인가\n\n3. **집중 vs 분산**\n   - [[포트폴리오 이론]]: 리스크 분산\n   - [[Phase Transition]]: 임계점 돌파를 위한 집중\n   - 전략: 타이밍에 따른 전환\n\n4. **이론 vs 실제**\n   - 이론적 최적: [[내쉬 균형]], [[포트폴리오 이론]]\n   - 실제 행동: [[행동경제학]]\n   - 현실 적용: 편향을 고려한 전략 설계\n\n## 적용 영역\n\n- **비즈니스**: 경쟁 전략, 가격 결정, 시장 진입\n- **투자**: 포트폴리오 구성, 타이밍, 리스크 관리\n- **성장**: 임계점 식별, 집중 투입, 스케일업\n- **협상**: 균형 만들기, 프레이밍, 앵커링\n- **조직**: 문화 변화, 의사결정 구조, 인센티브 설계\n\n## 실전 질문\n\n전략적 의사결정 시 스스로에게 물어볼 질문들:\n\n1. 현재 상황은 어떤 균형 상태인가? ([[내쉬 균형]])\n2. 리스크를 어떻게 분산하고 있는가? ([[포트폴리오 이론]])\n3. 임계점은 어디이고, 언제 오는가? ([[Phase Transition]])\n4. 사람들의 실제 행동 패턴은 무엇인가? ([[행동경제학]])\n\n---\n\n#index #strategy #competition #decision-making\n",
+            "openAfterCreate": true
+          },
+          "status": "success",
+          "startTime": 1767773643297,
+          "endTime": 1767773651613,
+          "output": ""
+        }
+      ],
+      "isStreaming": false
+    },
+    {
+      "id": "msg-1767773725856-ydmt2a3nq",
+      "role": "user",
+      "content": "Part3_전략_경쟁 폴더의 4개 노트를 분석하고 더 나은 구조를 제안해줘",
+      "timestamp": 1767773725856
+    },
+    {
+      "id": "msg-1767773725929-pkxtsqc6j",
+      "role": "assistant",
+      "content": "## 현재 구조 분석\n\n### 강점\n1. **백링크 네트워크**: 4개 노트가 의미 있게 연결됨\n2. **인덱스 노트**: 전체 구조를 조망하는 메타 레이어 존재\n3. **일관된 형식**: 정의 → 핵심 개념 → 사례/적용 → 관련 개념 구조\n\n### 문제점\n\n**1. 개념 깊이 불균형**\n- 행동경제학: 2개 이론 + 4개 편향 (상세)\n- 내쉬 균형: 추상적 설명 위주 (구체성 부족)\n- Phase Transition: 사례는 많으나 메커니즘 설명 부족\n- 포트폴리오 이론: 원리는 있으나 실제 적용법 부족\n\n**2. 링크 방향성 문제**\n- 백링크가 \"관련 개념\" 섹션에만 집중\n- 본문 중간의 자연스러운 연결이 부족\n- 일방향 참조가 많음 (A→B 있지만 B→A 없음)\n\n**3. 실전 적용 가이드 부재**\n- 이론 설명은 있지만 \"언제, 어떻게 사용하나\" 불명확\n- 의사결정 프레임워크로 활용하기 어려움\n\n**4. 누락된 핵심 개념**\n- 죄수의 딜레마 (내쉬 균형의 가장 유명한 사례)\n- Black Swan (포트폴리오 이론의 한계)\n- Network Effect (Phase Transition의 핵심 동인)\n- Mental Accounting (행동경제학의 중요 개념)\n\n## 개선안\n\n### 구조 개선 방향\n\n#### 1. 계층화 전략\n```\n0_전략_경쟁_Index.md          # 메타 레이어\n├── 이론 레이어\n│   ├── 내쉬 균형.md\n│   ├── 포트폴리오 이론.md\n│   ├── Phase Transition.md\n│   └── 행동경제학.md\n├── 패턴 레이어 (신규 제안)\n│   ├── 균형-깨기-패턴.md      # 내쉬+Phase Transition 통합\n│   ├── 집중-분산-패턴.md      # 포트폴리오+Phase Transition\n│   └── 이론-실제-갭.md        # 3개 이론 + 행동경제학\n└── 적용 레이어 (신규 제안)\n    ├── 의사결정-체크리스트.md\n    ├── 전략-케이스-스터디.md\n    └── 실전-플레이북.md\n```\n\n#### 2. 개별 노트 개선\n\n**내쉬 균형.md 보강안**\n```markdown\n## 고전 사례 추가\n- 죄수의 딜레마 (상세 분석)\n- 공유지의 비극\n- 치킨 게임\n\n## 실전 식별법\n- 균형 상태 진단 체크리스트\n- 균형 깨기 타이밍 판단법\n- 협력적 균형 설계 원칙\n\n## 함정\n- Focal Point의 함정\n- Multiple Equilibria 상황\n```\n\n**포트폴리오 이론.md 보강안**\n```markdown\n## 실전 적용\n- 상관관계 측정 방법\n- 리밸런싱 규칙\n- 시스템 리스크 vs 개별 리스크 구분\n\n## 한계\n- Black Swan Event\n- Tail Risk\n- 상관관계 붕괴 (Crisis 시점)\n\n## 비투자 영역 적용\n- 시간 포트폴리오\n- 스킬 포트폴리오\n- 프로젝트 포트폴리오\n```\n\n**Phase Transition.md 보강안**\n```markdown\n## 메커니즘\n- Positive Feedback Loop\n- Network Effect 수식화\n- Critical Mass 계산법\n\n## 조기 신호\n- Leading Indicator 식별\n- Weak Signal 감지법\n\n## 실패 사례\n- 임계점 못 넘은 케이스\n- 역전이 (Reverse Transition)\n```\n\n**행동경제학.md 보강안**\n```markdown\n## 추가 편향\n- Mental Accounting\n- Recency Bias\n- Overconfidence\n\n## 편향 대응법\n- 개인: 의사결정 체크리스트\n- 조직: 구조적 방어\n- 전략적 활용 vs 윤리\n```\n\n#### 3. 신규 노트 제안\n\n**A. 균형-깨기-패턴.md** (통합 패턴)\n```markdown\n# 균형을 깨는 패턴\n\n내쉬 균형의 안정 상태를 Phase Transition으로 전환하는 전략 패턴\n\n## 3단계 프레임워크\n1. 균형 식별 (내쉬 균형)\n2. 임계점 설계 (Phase Transition)\n3. 촉매 투입 (행동경제학 활용)\n\n## 실전 케이스\n- Uber의 시장 진입 전략\n- iPhone의 스마트폰 시장 전환\n```\n\n**B. 의사결정-체크리스트.md** (실전 도구)\n```markdown\n# 전략적 의사결정 체크리스트\n\n## 상황 분석\n□ 현재 균형 상태는? (내쉬)\n□ 주요 플레이어의 합리성 수준? (행동경제학)\n□ 리스크 상관관계는? (포트폴리오)\n□ 임계점까지 거리는? (Phase Transition)\n\n## 전략 선택\n□ 균형 유지 vs 깨기\n□ 집중 vs 분산\n□ 이론적 최적 vs 실제 행동 고려\n\n## 실행 타이밍\n□ 조기 신호 감지 설정\n□ 집중 투입 트리거\n□ Exit 조건\n```\n\n### 태그 전략 개선\n\n**현재**: 개별 태그 (#strategy, #game-theory, #finance...)\n\n**제안**: 계층적 태그 시스템\n```\n#theory/game-theory\n#theory/finance\n#theory/systems\n#theory/psychology\n\n#pattern/equilibrium\n#pattern/risk\n#pattern/transition\n\n#practice/decision-making\n#practice/negotiation\n#practice/investment\n```\n\n### 우선순위 제안\n\n**즉시 실행 (High Impact, Low Effort)**\n1. 각 노트에 \"언제 사용하나\" 섹션 추가\n2. 실전 사례를 구체적으로 확장\n3. 의사결정 체크리스트 노트 생성\n\n**단기 (1-2주)**\n4. 균형-깨기-패턴.md 작성\n5. 누락된 핵심 개념 보완 (죄수의 딜레마, Black Swan 등)\n\n**중기 (1개월)**\n6. 전략 케이스 스터디 수집\n7. 실전 플레이북 작성\n\n어떤 방향으로 개선을 진행할까요? 전체를 한 번에 하거나, 특정 노트부터 깊이 있게 보강할 수 있습니다.",
+      "timestamp": 1767773804681,
+      "toolCalls": [
+        {
+          "id": "toolu_0181teJcq4E1t7cYHtzr6dWT",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\내쉬 균형.md"
+          },
+          "status": "success",
+          "startTime": 1767773734821,
+          "endTime": 1767773803627,
+          "output": ""
+        },
+        {
+          "id": "toolu_01QA3StgsqLgAV9yHc6nUDw1",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\포트폴리오 이론.md"
+          },
+          "status": "success",
+          "startTime": 1767773735378,
+          "endTime": 1767773803641,
+          "output": ""
+        },
+        {
+          "id": "toolu_012VDEq3tkdpmVv7xAAx9aR4",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\Phase Transition.md"
+          },
+          "status": "success",
+          "startTime": 1767773735857,
+          "endTime": 1767773803656,
+          "output": ""
+        },
+        {
+          "id": "toolu_014qZ7BVcPNL4Tgv9XXtLPyc",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\행동경제학.md"
+          },
+          "status": "success",
+          "startTime": 1767773736488,
+          "endTime": 1767773803677,
+          "output": ""
+        },
+        {
+          "id": "toolu_0191jbibT7gRdqJpfjpkNm4m",
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\win10_original\\claude-vault\\3-Resources\\Part3_전략_경쟁\\0_전략_경쟁_Index.md"
+          },
+          "status": "success",
+          "startTime": 1767773736989,
+          "endTime": 1767773803698,
+          "output": ""
+        }
+      ],
+      "isStreaming": false
+    }
+  ]
+}

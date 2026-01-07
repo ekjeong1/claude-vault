@@ -1,12 +1,84 @@
 {
   "conversations": [
     {
+      "id": "conv-1767829817691-zpovgm8a1",
+      "sessionId": "conv-1767829817691-zpovgm8a1",
+      "title": "BrainTwin_Master_Index를 업데이트해서 Part 3, 4, 5, 6도...",
+      "createdAt": 1767829817691,
+      "updatedAt": 1767829831661,
+      "messageCount": 1,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
+      "id": "conv-1767776691897-84kunx7rq",
+      "sessionId": "e3a27c1e-1013-4de6-b319-2e3a7968f2c8",
+      "title": "다음 3개 노트를 3-Resources/Part6_미래_경영수학 폴더에 만들어줘. 각...",
+      "createdAt": 1767776691897,
+      "updatedAt": 1767776996878,
+      "messageCount": 6,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
+      "id": "conv-1767776355053-qf54czqlz",
+      "sessionId": "83ef01bf-931a-4e3b-9f9d-2c8547db7a80",
+      "title": "다음 2개 노트를 3-Resources/Part5_혁신_창의성 폴더에 만들어줘. 각각...",
+      "createdAt": 1767776355053,
+      "updatedAt": 1767776644748,
+      "messageCount": 6,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
+      "id": "conv-1767775731551-kqi71kk84",
+      "sessionId": "73f6d210-f53d-4a5d-b0f9-ece60cfd5114",
+      "title": "다음 4개 노트를 3-Resources/Part4_의사결정_데이터 폴더에 만들어줘. ...",
+      "createdAt": 1767775731551,
+      "updatedAt": 1767776209644,
+      "messageCount": 6,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
+      "id": "conv-1767772084807-x20kn5ku4",
+      "sessionId": "73e2890d-74bb-4ff3-9ecf-56fac8f77086",
+      "title": "다음 4개 노트를 3-Resources/Part3_전략_경쟁 폴더에 만들어줘. 각각 ...",
+      "createdAt": 1767772084807,
+      "updatedAt": 1767773804684,
+      "messageCount": 8,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
+      "id": "conv-1767768296427-bm3qyfaki",
+      "sessionId": "6a1d2158-5f7a-459f-8909-2818df8bf68e",
+      "title": "다음 4개 노트를 3-Resources 폴더에 만들어줘. 각각 간단히만 써줘. 서로 ...",
+      "createdAt": 1767768296427,
+      "updatedAt": 1767770261998,
+      "messageCount": 8,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
       "id": "conv-1767757712956-ixr2mvgg5",
       "sessionId": "4599bf04-a543-450b-b3b0-648546ed042f",
       "title": "@Rank와 Nullity 이 노트를 요약해줘",
       "createdAt": 1767757712956,
-      "updatedAt": 1767758243261,
-      "messageCount": 7,
+      "updatedAt": 1767760212850,
+      "messageCount": 10,
       "metadata": {
         "totalTokens": 0,
         "totalCostUsd": 0
@@ -229,5 +301,5 @@
       }
     }
   ],
-  "activeConversationId": "conv-1767757712956-ixr2mvgg5"
+  "activeConversationId": "conv-1767829817691-zpovgm8a1"
 }

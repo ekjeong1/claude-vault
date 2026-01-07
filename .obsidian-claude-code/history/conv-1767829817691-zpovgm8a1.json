@@ -1,0 +1,26 @@
+{
+  "id": "conv-1767829817691-zpovgm8a1",
+  "sessionId": "conv-1767829817691-zpovgm8a1",
+  "title": "BrainTwin_Master_Index를 업데이트해서 Part 3, 4, 5, 6도...",
+  "createdAt": 1767829817691,
+  "updatedAt": 1767829831661,
+  "messageCount": 1,
+  "metadata": {
+    "totalTokens": 0,
+    "totalCostUsd": 0
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "BrainTwin_Master_Index를 업데이트해서 Part 3, 4, 5, 6도 포함시켜줘"
+    }
+  ],
+  "displayMessages": [
+    {
+      "id": "msg-1767829831648-k405wquwu",
+      "role": "user",
+      "content": "BrainTwin_Master_Index를 업데이트해서 Part 3, 4, 5, 6도 포함시켜줘",
+      "timestamp": 1767829831648
+    }
+  ]
+}
