@@ -1,0 +1,26 @@
+{
+  "id": "conv-1767840713772-qv0gzfcg4",
+  "sessionId": "conv-1767840713772-qv0gzfcg4",
+  "title": "Part1_조직_인력과 Part3_전략_경쟁 사이에 연결될 수 있는 개념이 있는지 분...",
+  "createdAt": 1767840713772,
+  "updatedAt": 1767840722074,
+  "messageCount": 1,
+  "metadata": {
+    "totalTokens": 0,
+    "totalCostUsd": 0
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "Part1_조직_인력과 Part3_전략_경쟁 사이에 연결될 수 있는 개념이 있는지 분석하고, 발견한 연결을 노트에 추가해줘"
+    }
+  ],
+  "displayMessages": [
+    {
+      "id": "msg-1767840722048-owasdzgxr",
+      "role": "user",
+      "content": "Part1_조직_인력과 Part3_전략_경쟁 사이에 연결될 수 있는 개념이 있는지 분석하고, 발견한 연결을 노트에 추가해줘",
+      "timestamp": 1767840722048
+    }
+  ]
+}
