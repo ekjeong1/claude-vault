@@ -1,0 +1,10 @@
+{
+	"id": "vibe-note-connector",
+	"name": "Note Connector",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Identifies isolated notes and suggests connections to related notes in your vault.",
+	"author": "Vibesidian Plugin",
+	"authorUrl": "https://github.com/iansinnott/vibesidian",
+	"isDesktopOnly": false
+}

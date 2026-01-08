@@ -1,12 +1,60 @@
 {
   "conversations": [
     {
+      "id": "conv-1767840335779-j3p7r79up",
+      "sessionId": "conv-1767840335779-j3p7r79up",
+      "title": "3-Resources/Part3_전략_경쟁/내쉬 균형.md 노트를 읽고, 원본에 없는...",
+      "createdAt": 1767840335779,
+      "updatedAt": 1767840335788,
+      "messageCount": 1,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
+      "id": "conv-1767838330910-3uprul8vg",
+      "sessionId": "7f5c271b-1a62-4873-b209-bf57d8ffdaf4",
+      "title": "3-Resources/Part2_프로세스_운영 폴더에 \"베이즈의 오류.md\" 노트를 ...",
+      "createdAt": 1767838330910,
+      "updatedAt": 1767838691685,
+      "messageCount": 6,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
+      "id": "conv-1767837659636-sje4ifigr",
+      "sessionId": "b54b54a4-9b3a-4451-a7f7-671b5cbf6324",
+      "title": "3-Resources/Part1_조직_인력/Organizational_Math_Cas...",
+      "createdAt": 1767837659636,
+      "updatedAt": 1767838050948,
+      "messageCount": 6,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
+      "id": "conv-1767837092937-82oo4feqz",
+      "sessionId": "cc181800-d1fa-481c-82a4-68f431f7a6e5",
+      "title": "3-Resources/Part3_전략_경쟁 폴더에 \"분산의 함정.md\" 노트를 만들어...",
+      "createdAt": 1767837092937,
+      "updatedAt": 1767837488587,
+      "messageCount": 8,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
       "id": "conv-1767835790451-glbrvw4n8",
       "sessionId": "88f8e6f2-ffe9-4874-b5ed-6f25d9aa76c0",
       "title": "3-Resources/Part1_조직_인력 폴더에 \"Rank의 한계.md\" 노트를 만...",
       "createdAt": 1767835790451,
-      "updatedAt": 1767836738839,
-      "messageCount": 7,
+      "updatedAt": 1767836861790,
+      "messageCount": 8,
       "metadata": {
         "totalTokens": 0,
         "totalCostUsd": 0
@@ -325,5 +373,5 @@
       }
     }
   ],
-  "activeConversationId": "conv-1767835790451-glbrvw4n8"
+  "activeConversationId": "conv-1767840335779-j3p7r79up"
 }

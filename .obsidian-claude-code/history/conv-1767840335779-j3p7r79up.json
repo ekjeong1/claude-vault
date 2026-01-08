@@ -1,0 +1,26 @@
+{
+  "id": "conv-1767840335779-j3p7r79up",
+  "sessionId": "conv-1767840335779-j3p7r79up",
+  "title": "3-Resources/Part3_전략_경쟁/내쉬 균형.md 노트를 읽고, 원본에 없는...",
+  "createdAt": 1767840335779,
+  "updatedAt": 1767840335788,
+  "messageCount": 1,
+  "metadata": {
+    "totalTokens": 0,
+    "totalCostUsd": 0
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "3-Resources/Part3_전략_경쟁/내쉬 균형.md 노트를 읽고, 원본에 없는 새로운 통찰이나 적용 사례를 추가해서 발전시켜줘"
+    }
+  ],
+  "displayMessages": [
+    {
+      "id": "msg-1767840335735-3tha27llx",
+      "role": "user",
+      "content": "3-Resources/Part3_전략_경쟁/내쉬 균형.md 노트를 읽고, 원본에 없는 새로운 통찰이나 적용 사례를 추가해서 발전시켜줘",
+      "timestamp": 1767840335735
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+/* Note Connector Plugin Styles */
+
+.note-connector-view {
+  padding: 10px;
+}
+
+.note-connector-header {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-connector-title {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.note-connector-scan-button {
+  margin-right: 10px;
+}
+
+.note-connector-isolated-note {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.note-connector-note-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+}
+
+.note-connector-note-path {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.note-connector-suggestions {
+  margin-top: 10px;
+  padding-left: 15px;
+}
+
+.note-connector-suggestion {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.note-connector-suggestion:hover {
+  background-color: var(--background-modifier-hover);
+}
+
+.note-connector-suggestion-title {
+  flex-grow: 1;
+}
+
+.note-connector-suggestion-score {
+  margin-right: 10px;
+  font-size: 0.8em;
+  color: var(--text-muted);
+}
+
+.note-connector-suggestion-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.note-connector-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.note-connector-progress {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.note-connector-empty-state {
+  text-align: center;
+  padding: 30px;
+  color: var(--text-muted);
+}
+
+.note-connector-settings {
+  margin-top: 20px;
+}
+
+.note-connector-settings-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.note-connector-setting-item {
+  margin-bottom: 15px;
+}
+
+.note-connector-setting-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.note-connector-setting-description {
+  font-size: 0.9em;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
