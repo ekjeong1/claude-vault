@@ -11,6 +11,8 @@
 **🚀 [[0_Quick_Reference|빠른 참조 가이드]]** - 문제 유형별 개념 선택 치트시트
 **🗺️ [[0_Concept_Map|개념 관계도]]** - Part와 개념 간 연결 시각화
 **📖 [[0_Glossary|용어 사전]]** - 핵심 개념과 수학 용어 정의
+**🎓 [[0_Learning_Path|학습 경로]]** - 체계적 학습을 위한 단계별 로드맵
+**❓ [[0_FAQ|자주 묻는 질문]]** - FAQ 및 문제 해결
 **🔧 [[0_Maintenance_Guide|유지보수 가이드]]** - 폴더 관리 및 확장 지침
 
 ---
@@ -67,6 +69,8 @@
 ├── 0_Quick_Reference.md          # 빠른 참조 치트시트
 ├── 0_Concept_Map.md              # 개념 관계 시각화
 ├── 0_Glossary.md                 # 용어 사전
+├── 0_Learning_Path.md            # 학습 경로 가이드
+├── 0_FAQ.md                      # 자주 묻는 질문
 ├── 0_Maintenance_Guide.md        # 유지보수 가이드
 ├── README.md                     # GitHub 소개 문서
 │
