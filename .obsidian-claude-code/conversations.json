@@ -1,12 +1,24 @@
 {
   "conversations": [
     {
+      "id": "conv-1767859438851-m1v0c22uz",
+      "sessionId": "conv-1767859438851-m1v0c22uz",
+      "title": "BrainTwin의 핵심 불변량(절대 변하면 안 되는 원칙)을 정의하는 \"0_Inva...",
+      "createdAt": 1767859438851,
+      "updatedAt": 1767859448664,
+      "messageCount": 1,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
       "id": "conv-1767841103602-nio1sardx",
       "sessionId": "bd90e209-ae46-42cb-b2dd-a4a53648dac0",
       "title": "BrainTwin 전체 구조를 분석하고, 현재 없지만 추가하면 좋을 개념이나 주제가 ...",
       "createdAt": 1767841103602,
-      "updatedAt": 1767851957245,
-      "messageCount": 13,
+      "updatedAt": 1767852190417,
+      "messageCount": 14,
       "metadata": {
         "totalTokens": 0,
         "totalCostUsd": 0
@@ -397,5 +409,5 @@
       }
     }
   ],
-  "activeConversationId": "conv-1767841103602-nio1sardx"
+  "activeConversationId": "conv-1767859438851-m1v0c22uz"
 }

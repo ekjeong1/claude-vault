@@ -1,0 +1,26 @@
+{
+  "id": "conv-1767859438851-m1v0c22uz",
+  "sessionId": "conv-1767859438851-m1v0c22uz",
+  "title": "BrainTwin의 핵심 불변량(절대 변하면 안 되는 원칙)을 정의하는 \"0_Inva...",
+  "createdAt": 1767859438851,
+  "updatedAt": 1767859448664,
+  "messageCount": 1,
+  "metadata": {
+    "totalTokens": 0,
+    "totalCostUsd": 0
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "BrainTwin의 핵심 불변량(절대 변하면 안 되는 원칙)을 정의하는 \"0_Invariants.md\" 파일을 만들어줘. 5가지 원칙과 각각의 구체적 판정 기준을 포함해줘."
+    }
+  ],
+  "displayMessages": [
+    {
+      "id": "msg-1767859448662-346tam95g",
+      "role": "user",
+      "content": "BrainTwin의 핵심 불변량(절대 변하면 안 되는 원칙)을 정의하는 \"0_Invariants.md\" 파일을 만들어줘. 5가지 원칙과 각각의 구체적 판정 기준을 포함해줘.",
+      "timestamp": 1767859448662
+    }
+  ]
+}
