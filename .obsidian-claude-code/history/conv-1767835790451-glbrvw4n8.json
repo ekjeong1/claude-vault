@@ -1,0 +1,26 @@
+{
+  "id": "conv-1767835790451-glbrvw4n8",
+  "sessionId": "conv-1767835790451-glbrvw4n8",
+  "title": "3-Resources/Part1_조직_인력 폴더에 \"Rank의 한계.md\" 노트를 만...",
+  "createdAt": 1767835790451,
+  "updatedAt": 1767835982777,
+  "messageCount": 1,
+  "metadata": {
+    "totalTokens": 0,
+    "totalCostUsd": 0
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "3-Resources/Part1_조직_인력 폴더에 \"Rank의 한계.md\" 노트를 만들어줘. 내용은: Rank 분석의 문제점 - 수치화된 Rank는 실제 기여도를 반영하지 못하며, 협업과 무형적 가치를 무시한다. Rank와 Nullity 접근법은 조직 분석에 부적합하다."
+    }
+  ],
+  "displayMessages": [
+    {
+      "id": "msg-1767835982752-av9j4zgmq",
+      "role": "user",
+      "content": "3-Resources/Part1_조직_인력 폴더에 \"Rank의 한계.md\" 노트를 만들어줘. 내용은: Rank 분석의 문제점 - 수치화된 Rank는 실제 기여도를 반영하지 못하며, 협업과 무형적 가치를 무시한다. Rank와 Nullity 접근법은 조직 분석에 부적합하다.",
+      "timestamp": 1767835982752
+    }
+  ]
+}

@@ -1,12 +1,24 @@
 {
   "conversations": [
     {
+      "id": "conv-1767835790451-glbrvw4n8",
+      "sessionId": "conv-1767835790451-glbrvw4n8",
+      "title": "3-Resources/Part1_조직_인력 폴더에 \"Rank의 한계.md\" 노트를 만...",
+      "createdAt": 1767835790451,
+      "updatedAt": 1767835982777,
+      "messageCount": 1,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
       "id": "conv-1767830687218-qgwlkfum0",
       "sessionId": "ec761e10-1b84-4ca5-ba83-8f766c3ee09b",
       "title": "3-Resources 폴더 전체를 분석하고 구조를 개선해줘",
       "createdAt": 1767830687218,
-      "updatedAt": 1767834680236,
-      "messageCount": 11,
+      "updatedAt": 1767835019411,
+      "messageCount": 12,
       "metadata": {
         "totalTokens": 0,
         "totalCostUsd": 0
@@ -313,5 +325,5 @@
       }
     }
   ],
-  "activeConversationId": "conv-1767830687218-qgwlkfum0"
+  "activeConversationId": "conv-1767835790451-glbrvw4n8"
 }
