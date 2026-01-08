@@ -1,12 +1,24 @@
 {
   "conversations": [
     {
+      "id": "conv-1767841103602-nio1sardx",
+      "sessionId": "bd90e209-ae46-42cb-b2dd-a4a53648dac0",
+      "title": "BrainTwin 전체 구조를 분석하고, 현재 없지만 추가하면 좋을 개념이나 주제가 ...",
+      "createdAt": 1767841103602,
+      "updatedAt": 1767847646902,
+      "messageCount": 3,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
       "id": "conv-1767840713772-qv0gzfcg4",
-      "sessionId": "conv-1767840713772-qv0gzfcg4",
+      "sessionId": "69f14620-f2b6-4c19-975f-3c9673ed5ff7",
       "title": "Part1_조직_인력과 Part3_전략_경쟁 사이에 연결될 수 있는 개념이 있는지 분...",
       "createdAt": 1767840713772,
-      "updatedAt": 1767840722074,
-      "messageCount": 1,
+      "updatedAt": 1767841009963,
+      "messageCount": 2,
       "metadata": {
         "totalTokens": 0,
         "totalCostUsd": 0
@@ -385,5 +397,5 @@
       }
     }
   ],
-  "activeConversationId": "conv-1767840713772-qv0gzfcg4"
+  "activeConversationId": "conv-1767841103602-nio1sardx"
 }
