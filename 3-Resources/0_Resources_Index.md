@@ -8,6 +8,9 @@
 
 3-Resources 폴더는 프로젝트와 업무에 활용 가능한 참고 자료를 보관합니다. 현재는 BrainTwin 경영수학 프레임워크가 핵심 콘텐츠입니다.
 
+**🚀 [[0_Quick_Reference|빠른 참조 가이드]]** - 문제 유형별 개념 선택 치트시트
+**🗺️ [[0_Concept_Map|개념 관계도]]** - Part와 개념 간 연결 시각화
+
 ---
 
 ## 주요 컬렉션
@@ -57,8 +60,10 @@
 
 ```
 3-Resources/
-├── 0_Resources_Index.md          # 이 파일
+├── 0_Resources_Index.md          # 이 파일 (최상위 진입점)
 ├── 0_BrainTwin_Master_Index.md   # BrainTwin 마스터 인덱스
+├── 0_Quick_Reference.md          # 빠른 참조 치트시트
+├── 0_Concept_Map.md              # 개념 관계 시각화
 │
 ├── Part1_조직_인력/              # 조직 구조와 효율성
 │   ├── 0_Part1_Organization_Index.md
