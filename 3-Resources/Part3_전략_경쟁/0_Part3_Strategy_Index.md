@@ -93,4 +93,4 @@ Phase Transition  ←─→  군중 심리
 
 ---
 
-#index #strategy #competition #decision-making
+#resource #braintwin #part3 #strategy #competition

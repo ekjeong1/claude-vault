@@ -34,4 +34,4 @@
 
 ---
 
-#resource/innovation #index
+#resource #braintwin #part5 #innovation #creativity

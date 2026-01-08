@@ -1,7 +1,5 @@
 # Part6 미래 경영수학 Index
 
-#resource #management-math #index
-
 ## 개요
 
 미래 경영수학은 전통적 경영 분석을 넘어 첨단 기술과 새로운 가치 체계를 통합하는 수학적 접근법이다. AI, 양자컴퓨팅, ESG라는 세 가지 핵심 축을 통해 경영 의사결정의 새로운 패러다임을 제시한다.
@@ -126,3 +124,7 @@
 3. **경영 배경**: AI → ESG → Quantum 순서 추천
 
 각자의 배경과 관심사에 따라 진입점을 선택하되, 세 주제의 상호연결성을 이해하는 것이 중요하다.
+
+---
+
+#resource #braintwin #part6 #future #ai #quantum #esg

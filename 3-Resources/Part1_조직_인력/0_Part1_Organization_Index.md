@@ -120,4 +120,4 @@
 
 ---
 
-#resource #math #organizational-analysis #systems-thinking
+#resource #braintwin #part1 #organization #systems-thinking

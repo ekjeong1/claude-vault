@@ -116,4 +116,6 @@
 
 ---
 
-*마지막 업데이트: 2026-01-07*
+---
+
+#resource #braintwin #part4 #decision-making #data-analysis

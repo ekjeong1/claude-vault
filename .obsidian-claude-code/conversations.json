@@ -1,12 +1,24 @@
 {
   "conversations": [
     {
+      "id": "conv-1767830687218-qgwlkfum0",
+      "sessionId": "ec761e10-1b84-4ca5-ba83-8f766c3ee09b",
+      "title": "3-Resources 폴더 전체를 분석하고 구조를 개선해줘",
+      "createdAt": 1767830687218,
+      "updatedAt": 1767831025966,
+      "messageCount": 3,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
       "id": "conv-1767829817691-zpovgm8a1",
-      "sessionId": "conv-1767829817691-zpovgm8a1",
+      "sessionId": "c8ab6aa7-bdc3-46c0-a35a-bb3ba9672f01",
       "title": "BrainTwin_Master_Index를 업데이트해서 Part 3, 4, 5, 6도...",
       "createdAt": 1767829817691,
-      "updatedAt": 1767829831661,
-      "messageCount": 1,
+      "updatedAt": 1767830106375,
+      "messageCount": 2,
       "metadata": {
         "totalTokens": 0,
         "totalCostUsd": 0
@@ -301,5 +313,5 @@
       }
     }
   ],
-  "activeConversationId": "conv-1767829817691-zpovgm8a1"
+  "activeConversationId": "conv-1767830687218-qgwlkfum0"
 }
