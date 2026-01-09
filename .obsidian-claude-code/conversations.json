@@ -1,12 +1,36 @@
 {
   "conversations": [
     {
+      "id": "conv-1767954945027-t01gdbkka",
+      "sessionId": "44ef8a9a-f4bf-411d-860e-b0f3e3c54b34",
+      "title": "BrainTwin 전체 구조를 분석하고 개선점을 제안해줘. ",
+      "createdAt": 1767954945027,
+      "updatedAt": 1767955893594,
+      "messageCount": 3,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
+      "id": "conv-1767862378462-5z9sarv0z",
+      "sessionId": "67e6c9e8-f65c-4fb1-b3c7-7fafa12f4fc9",
+      "title": "장기 재귀 테스트를 기록할 \"0_Long_Term_RSI_Log.md\" 파일을 만들어...",
+      "createdAt": 1767862378462,
+      "updatedAt": 1767875636712,
+      "messageCount": 14,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
       "id": "conv-1767859438851-m1v0c22uz",
-      "sessionId": "conv-1767859438851-m1v0c22uz",
+      "sessionId": "000c3305-1d98-44b3-9cc2-2d18a7a4c632",
       "title": "BrainTwin의 핵심 불변량(절대 변하면 안 되는 원칙)을 정의하는 \"0_Inva...",
       "createdAt": 1767859438851,
-      "updatedAt": 1767859448664,
-      "messageCount": 1,
+      "updatedAt": 1767860568448,
+      "messageCount": 4,
       "metadata": {
         "totalTokens": 0,
         "totalCostUsd": 0
@@ -409,5 +433,5 @@
       }
     }
   ],
-  "activeConversationId": "conv-1767859438851-m1v0c22uz"
+  "activeConversationId": "conv-1767954945027-t01gdbkka"
 }
