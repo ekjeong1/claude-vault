@@ -8,7 +8,9 @@ export class NoteConnectorView extends ItemView {
   private plugin: NoteConnectorPlugin;
   private contentEl: HTMLElement;
   private isolatedNotes: NoteInfo[] = [];
+  private singleNoteAnalysis: NoteInfo | null = null;
   private isLoading: boolean = false;
+  private viewMode: 'isolated' | 'single' = 'isolated';
 
   constructor(leaf: WorkspaceLeaf, plugin: NoteConnectorPlugin) {
     super(leaf);
@@ -67,6 +69,8 @@ export class NoteConnectorView extends ItemView {
     // Content area
     if (this.isLoading) {
       this.renderLoadingState();
+    } else if (this.viewMode === 'single' && this.singleNoteAnalysis) {
+      this.renderSingleNoteAnalysis();
     } else if (this.isolatedNotes.length === 0) {
       this.renderEmptyState();
     } else {
@@ -115,6 +119,7 @@ export class NoteConnectorView extends ItemView {
    * Renders the list of isolated notes with suggestions
    */
   renderIsolatedNotes(): void {
+    this.viewMode = 'isolated';
     const notesContainer = this.contentEl.createDiv({ cls: 'note-connector-notes-container' });
     
     // Summary
@@ -125,69 +130,125 @@ export class NoteConnectorView extends ItemView {
     
     // Render each isolated note
     for (const note of this.isolatedNotes) {
-      const noteEl = notesContainer.createDiv({ cls: 'note-connector-isolated-note' });
-      
-      // Note title and path
-      const titleEl = noteEl.createEl('div', { cls: 'note-connector-note-title' });
-      titleEl.createEl('span', { text: note.title });
-      
-      // Add open button
-      const openButton = titleEl.createEl('button', { 
-        cls: 'note-connector-open-button',
-        attr: { 'aria-label': 'Open note' }
-      });
-      setIcon(openButton, 'file-text');
-      openButton.addEventListener('click', () => this.openNote(note.file));
-      
-      noteEl.createEl('div', { text: note.path, cls: 'note-connector-note-path' });
-      
-      // Suggestions section
-      if (note.suggestions.length > 0) {
-        const suggestionsEl = noteEl.createDiv({ cls: 'note-connector-suggestions' });
-        suggestionsEl.createEl('div', { text: 'Suggested connections:', cls: 'note-connector-suggestions-header' });
-        
-        // Render each suggestion
-        for (const suggestion of note.suggestions) {
-          const suggestionEl = suggestionsEl.createDiv({ cls: 'note-connector-suggestion' });
-          
-          // Suggestion title
-          suggestionEl.createEl('span', { 
-            text: suggestion.title,
-            cls: 'note-connector-suggestion-title'
-          });
-          
-          // Relevance score
-          suggestionEl.createEl('span', { 
-            text: `${Math.round(suggestion.relevanceScore * 100)}%`,
-            cls: 'note-connector-suggestion-score'
-          });
-          
-          // Actions
-          const actionsEl = suggestionEl.createDiv({ cls: 'note-connector-suggestion-actions' });
-          
-          // Connect button
-          const connectButton = actionsEl.createEl('button', { 
-            cls: 'note-connector-connect-button',
-            attr: { 'aria-label': 'Connect notes' }
-          });
-          setIcon(connectButton, 'link');
-          connectButton.addEventListener('click', () => this.connectNotes(note, suggestion));
-          
-          // Open button
-          const openSuggestionButton = actionsEl.createEl('button', { 
-            cls: 'note-connector-open-suggestion-button',
-            attr: { 'aria-label': 'Open note' }
-          });
-          setIcon(openSuggestionButton, 'file-text');
-          openSuggestionButton.addEventListener('click', () => this.openNote(suggestion.file));
-        }
-      } else {
-        noteEl.createEl('div', { 
-          text: 'No relevant connections found for this note.',
-          cls: 'note-connector-no-suggestions'
-        });
-      }
+      this.renderNoteWithSuggestions(notesContainer, note);
     }
+  }
+
+  /**
+   * Renders a single note analysis
+   */
+  renderSingleNoteAnalysis(): void {
+    if (!this.singleNoteAnalysis) return;
+    
+    this.viewMode = 'single';
+    const container = this.contentEl.createDiv({ cls: 'note-connector-single-note-container' });
+    
+    // Add back button
+    if (this.isolatedNotes.length > 0) {
+      const backButton = container.createEl('button', {
+        text: 'Back to Isolated Notes',
+        cls: 'note-connector-back-button'
+      });
+      backButton.addEventListener('click', () => {
+        this.viewMode = 'isolated';
+        this.renderView();
+      });
+    }
+    
+    // Summary
+    container.createEl('p', { 
+      text: `Analyzing connections for "${this.singleNoteAnalysis.title}"`,
+      cls: 'note-connector-summary'
+    });
+    
+    // Render the note with its suggestions
+    this.renderNoteWithSuggestions(container, this.singleNoteAnalysis);
+  }
+
+  /**
+   * Renders a note with its suggestions
+   * @param container The container element
+   * @param note The note to render
+   */
+  private renderNoteWithSuggestions(container: HTMLElement, note: NoteInfo): void {
+    const noteEl = container.createDiv({ cls: 'note-connector-isolated-note' });
+    
+    // Note title and path
+    const titleEl = noteEl.createEl('div', { cls: 'note-connector-note-title' });
+    titleEl.createEl('span', { text: note.title });
+    
+    // Add open button
+    const openButton = titleEl.createEl('button', { 
+      cls: 'note-connector-open-button',
+      attr: { 'aria-label': 'Open note' }
+    });
+    setIcon(openButton, 'file-text');
+    openButton.addEventListener('click', () => this.openNote(note.file));
+    
+    noteEl.createEl('div', { text: note.path, cls: 'note-connector-note-path' });
+    
+    // Suggestions section
+    if (note.suggestions.length > 0) {
+      const suggestionsEl = noteEl.createDiv({ cls: 'note-connector-suggestions' });
+      suggestionsEl.createEl('div', { text: 'Suggested connections:', cls: 'note-connector-suggestions-header' });
+      
+      // Render each suggestion
+      for (const suggestion of note.suggestions) {
+        const suggestionEl = suggestionsEl.createDiv({ cls: 'note-connector-suggestion' });
+        
+        // Suggestion title
+        suggestionEl.createEl('span', { 
+          text: suggestion.title,
+          cls: 'note-connector-suggestion-title'
+        });
+        
+        // Relevance score
+        suggestionEl.createEl('span', { 
+          text: `${Math.round(suggestion.relevanceScore * 100)}%`,
+          cls: 'note-connector-suggestion-score'
+        });
+        
+        // Relevance reason
+        suggestionEl.createEl('div', {
+          text: suggestion.relevanceReason,
+          cls: 'note-connector-suggestion-reason'
+        });
+        
+        // Actions
+        const actionsEl = suggestionEl.createDiv({ cls: 'note-connector-suggestion-actions' });
+        
+        // Connect button
+        const connectButton = actionsEl.createEl('button', { 
+          cls: 'note-connector-connect-button',
+          attr: { 'aria-label': 'Connect notes' }
+        });
+        setIcon(connectButton, 'link');
+        connectButton.addEventListener('click', () => this.connectNotes(note, suggestion));
+        
+        // Open button
+        const openSuggestionButton = actionsEl.createEl('button', { 
+          cls: 'note-connector-open-suggestion-button',
+          attr: { 'aria-label': 'Open note' }
+        });
+        setIcon(openSuggestionButton, 'file-text');
+        openSuggestionButton.addEventListener('click', () => this.openNote(suggestion.file));
+      }
+    } else {
+      noteEl.createEl('div', { 
+        text: 'No relevant connections found for this note.',
+        cls: 'note-connector-no-suggestions'
+      });
+    }
+  }
+
+  /**
+   * Shows the analysis for a single note
+   * @param note The analyzed note to show
+   */
+  showAnalyzedNote(note: NoteInfo): void {
+    this.singleNoteAnalysis = note;
+    this.viewMode = 'single';
+    this.renderView();
   }
 
   /**
@@ -201,6 +262,7 @@ export class NoteConnectorView extends ItemView {
       // Scan for isolated notes
       this.isolatedNotes = await this.plugin.scanForIsolatedNotes();
       new Notice(`Found ${this.isolatedNotes.length} isolated notes`);
+      this.viewMode = 'isolated';
     } catch (error) {
       console.error('Error scanning for isolated notes:', error);
       new Notice('Error scanning for isolated notes');

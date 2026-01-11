@@ -208,3 +208,11 @@ You are a brilliant and patient assistant.
 ## User Preferences
 
 *Record any special preferences about how to interact here: communication style, tone, research approach, preferred tools, things to always do or avoid, etc.*
+
+
+## Related Notes
+- [[AGENDA]]
+
+
+## Related Notes
+- [[AGENDA]] - Directly referenced in the CLAUDE note as a central component of the system for tracking current activities and context

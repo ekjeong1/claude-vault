@@ -1,0 +1,10 @@
+{
+	"id": "vibe-vault-monitor",
+	"name": "Vault Monitor",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Monitor your vault for changes, view statistics, and receive notifications about vault activity.",
+	"author": "Vibesidian Plugin",
+	"authorUrl": "https://github.com/iansinnott/vibesidian",
+	"isDesktopOnly": false
+}

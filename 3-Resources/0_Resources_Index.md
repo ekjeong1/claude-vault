@@ -8,13 +8,15 @@
 
 3-Resources 폴더는 프로젝트와 업무에 활용 가능한 참고 자료를 보관합니다. 현재는 BrainTwin 경영수학 프레임워크가 핵심 콘텐츠입니다.
 
-**🚀 [[0_Quick_Reference|빠른 참조 가이드]]** - 문제 유형별 개념 선택 치트시트
-**🗺️ [[0_Concept_Map|개념 관계도]]** - Part와 개념 간 연결 시각화
-**📖 [[0_Glossary|용어 사전]]** - 핵심 개념과 수학 용어 정의
-**🎓 [[0_Learning_Path|학습 경로]]** - 체계적 학습을 위한 단계별 로드맵
-**🔮 [[0_Future_Expansion_Roadmap|미래 확장 로드맵]]** - 향후 추가 예정 개념과 우선순위
-**❓ [[0_FAQ|자주 묻는 질문]]** - FAQ 및 문제 해결
-**🔧 [[0_Maintenance_Guide|유지보수 가이드]]** - 폴더 관리 및 확장 지침
+**핵심 가이드 (5개 통합 문서):**
+- 🚀 **[[0_Getting_Started|시작 가이드]]** - Quick Start + 학습 경로 + FAQ 통합
+- ✅ **[[0_Invariants_Guide|품질 관리 가이드]]** - 불변량 체크리스트 + 검증 + 위반 사례
+- 🔄 **[[0_Workflows|워크플로우 가이드]]** - 문제 진단 + 횡단 분석 + 실전 시나리오 + 도구 통합
+- 🔧 **[[0_Maintenance|유지보수 가이드]]** - 정기 작업 + 피드백 + 사용 분석
+- 📚 **[[0_Reference|빠른 참조]]** - 용어 사전 + 개념 지도 + 의존성 그래프
+
+**불변량:**
+- ⚠️ **[[0_Invariants|BrainTwin 불변량]]** - 5가지 핵심 원칙 (변경 불가)
 
 ---
 
@@ -67,39 +69,46 @@
 3-Resources/
 ├── 0_Resources_Index.md          # 이 파일 (최상위 진입점)
 ├── 0_BrainTwin_Master_Index.md   # BrainTwin 마스터 인덱스
-├── 0_Quick_Reference.md          # 빠른 참조 치트시트
-├── 0_Concept_Map.md              # 개념 관계 시각화
-├── 0_Glossary.md                 # 용어 사전
-├── 0_Learning_Path.md            # 학습 경로 가이드
-├── 0_Future_Expansion_Roadmap.md # 미래 확장 로드맵
-├── 0_FAQ.md                      # 자주 묻는 질문
-├── 0_Maintenance_Guide.md        # 유지보수 가이드
-├── README.md                     # GitHub 소개 문서
+│
+├── 핵심 가이드 (5개 통합 문서)
+├── 0_Getting_Started.md          # 시작 가이드 (Quick Start + 학습 + FAQ)
+├── 0_Invariants_Guide.md         # 품질 관리 (체크리스트 + 검증 + 위반)
+├── 0_Workflows.md                # 워크플로우 (진단 + 횡단 + 시나리오 + 도구)
+├── 0_Maintenance.md              # 유지보수 (작업 + 피드백 + 분석)
+├── 0_Reference.md                # 빠른 참조 (용어 + 지도 + 의존성)
+│
+├── 0_Invariants.md               # 불변량 (변경 불가, 핵심 원칙)
 │
 ├── Part1_조직_인력/              # 조직 구조와 효율성
 │   ├── 0_Part1_Organization_Index.md
 │   ├── 그래프 이론과 중심성.md
 │   ├── Rank와 Nullity.md
-│   ├── 군론과 대칭성.md
-│   └── ...
+│   └── 군론과 대칭성.md
 │
 ├── Part2_프로세스_운영/          # 프로세스 최적화
 │   ├── 0_Part2_Process_Index.md
 │   ├── SVD와 PCA.md
 │   ├── Null Space 응용.md
-│   └── ...
+│   ├── 마르코프 체인.md
+│   ├── 베이즈 정리.md
+│   └── 시스템 사고와 피드백 루프.md
 │
 ├── Part3_전략_경쟁/              # 게임이론과 전략
 │   ├── 0_Part3_Strategy_Index.md
 │   ├── 내쉬 균형.md
 │   ├── 포트폴리오 이론.md
-│   └── ...
+│   ├── Phase Transition.md
+│   ├── 행동경제학.md
+│   └── 네트워크 효과와 플랫폼 경제학.md
 │
 ├── Part4_의사결정_데이터/        # 데이터 분석
 │   ├── 0_Part4_Decision_Index.md
+│   ├── 인과 추론.md
+│   ├── 실험과 학습.md
 │   ├── 엔트로피.md
 │   ├── 최적화 이론.md
-│   └── ...
+│   ├── 동적 계획법과 강화학습.md
+│   └── 극값 이론.md
 │
 ├── Part5_혁신_창의성/            # 혁신 방법론
 │   ├── 0_Part5_Innovation_Index.md
@@ -112,6 +121,11 @@
     ├── Quantum_Computing.md
     └── ESG와_지속가능_수학.md
 ```
+
+**변경 사항 (2026-01-10):**
+- 메타 문서 통합: 36개 → 8개 (78% 감축)
+- 5개 통합 문서: Getting Started, Invariants Guide, Workflows, Maintenance, Reference
+- 불변량 1 (복잡성 단순화) 준수
 
 ---
 

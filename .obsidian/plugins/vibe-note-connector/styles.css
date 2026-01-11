@@ -31,6 +31,9 @@
   font-weight: bold;
   margin-bottom: 5px;
   font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .note-connector-note-path {
@@ -44,12 +47,18 @@
   padding-left: 15px;
 }
 
+.note-connector-suggestions-header {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
 .note-connector-suggestion {
   display: flex;
-  align-items: center;
-  margin-bottom: 5px;
-  padding: 5px;
-  border-radius: 3px;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid var(--background-modifier-border-hover);
 }
 
 .note-connector-suggestion:hover {
@@ -57,30 +66,48 @@
 }
 
 .note-connector-suggestion-title {
-  flex-grow: 1;
+  font-weight: bold;
 }
 
 .note-connector-suggestion-score {
-  margin-right: 10px;
+  margin-left: 8px;
   font-size: 0.8em;
+  color: var(--text-accent);
+  background-color: var(--background-modifier-hover);
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.note-connector-suggestion-reason {
+  font-size: 0.9em;
   color: var(--text-muted);
+  margin: 5px 0;
+  font-style: italic;
 }
 
 .note-connector-suggestion-actions {
   display: flex;
   gap: 5px;
+  margin-top: 5px;
+  justify-content: flex-end;
 }
 
 .note-connector-loading {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 150px;
+}
+
+.note-connector-progress-container {
+  width: 80%;
+  margin-top: 15px;
 }
 
 .note-connector-progress {
   width: 100%;
-  margin: 10px 0;
+  height: 8px;
 }
 
 .note-connector-empty-state {
@@ -89,26 +116,60 @@
   color: var(--text-muted);
 }
 
-.note-connector-settings {
-  margin-top: 20px;
+.note-connector-summary {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--background-modifier-border);
 }
 
-.note-connector-settings-title {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
-
-.note-connector-setting-item {
+.note-connector-back-button {
   margin-bottom: 15px;
 }
 
-.note-connector-setting-name {
-  font-weight: bold;
-  margin-bottom: 5px;
+.note-connector-no-suggestions {
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 10px;
 }
 
-.note-connector-setting-description {
-  font-size: 0.9em;
-  color: var(--text-muted);
-  margin-bottom: 5px;
+/* Invariant Violations Modal */
+.invariant-violation {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-left: 3px solid var(--text-error);
+  background-color: var(--background-modifier-error-hover);
+  border-radius: 0 5px 5px 0;
+}
+
+.invariant-title {
+  margin: 0 0 10px 0;
+  color: var(--text-error);
+}
+
+.invariant-principle {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.invariant-violation-reason {
+  font-weight: bold;
+}
+
+.invariant-suggestion {
+  margin-top: 10px;
+  color: var(--text-accent);
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* Settings Styles */
+.note-connector-settings h3 {
+  margin-top: 30px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--background-modifier-border);
 }

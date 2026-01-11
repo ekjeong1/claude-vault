@@ -47,3 +47,11 @@
 ---
 
 *When onboarding is complete, this file becomes your working AGENDA — a snapshot of what's currently active.*
+
+
+## Related Notes
+- [[CLAUDE]] - Contains 60% of keywords
+
+
+## Related Notes
+- [[CLAUDE]]

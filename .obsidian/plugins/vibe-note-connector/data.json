@@ -1,0 +1,10 @@
+{
+  "minRelevanceScore": 0.3,
+  "maxSuggestionsPerNote": 5,
+  "scanOnStartup": true,
+  "createBacklinks": true,
+  "useAIForRelevance": true,
+  "autoTriggerOnSave": true,
+  "checkInvariants": true,
+  "invariantsFilePath": "3-Resources/0_Invariants.md"
+}

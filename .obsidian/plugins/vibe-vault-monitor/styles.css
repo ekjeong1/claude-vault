@@ -1,0 +1,132 @@
+/* Vault Monitor Plugin Styles */
+
+.vault-monitor-container {
+    padding: 10px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.vault-monitor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    padding-bottom: 10px;
+}
+
+.vault-monitor-header h2 {
+    margin: 0;
+    font-size: 1.3em;
+}
+
+.vault-monitor-refresh-btn {
+    font-size: 0.8em;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.vault-monitor-section {
+    margin-bottom: 20px;
+}
+
+.vault-monitor-section h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1em;
+    color: var(--text-normal);
+    border-bottom: 1px solid var(--background-modifier-border);
+    padding-bottom: 5px;
+}
+
+/* Stats Grid */
+.vault-monitor-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.vault-monitor-stat-item {
+    background-color: var(--background-secondary);
+    border-radius: 6px;
+    padding: 10px;
+    text-align: center;
+}
+
+.vault-monitor-stat-value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--text-accent);
+    margin-bottom: 5px;
+}
+
+.vault-monitor-stat-label {
+    font-size: 0.8em;
+    color: var(--text-muted);
+}
+
+.vault-monitor-last-updated {
+    font-size: 0.7em;
+    color: var(--text-muted);
+    text-align: right;
+    margin-top: 5px;
+}
+
+/* Activity Log */
+.vault-monitor-activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vault-monitor-activity-item {
+    display: flex;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.vault-monitor-activity-item:last-child {
+    border-bottom: none;
+}
+
+.vault-monitor-activity-icon {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.vault-monitor-icon-added::before {
+    content: "➕";
+}
+
+.vault-monitor-icon-deleted::before {
+    content: "❌";
+}
+
+.vault-monitor-icon-modified::before {
+    content: "✏️";
+}
+
+.vault-monitor-activity-content {
+    flex: 1;
+}
+
+.vault-monitor-activity-title {
+    font-size: 0.9em;
+    margin-bottom: 3px;
+}
+
+.vault-monitor-activity-time {
+    font-size: 0.7em;
+    color: var(--text-muted);
+}
+
+.vault-monitor-empty-log {
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: center;
+    padding: 20px 0;
+}

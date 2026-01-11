@@ -1,12 +1,36 @@
 {
   "conversations": [
     {
+      "id": "conv-1768123781600-8ahvd4lxe",
+      "sessionId": "c797dfee-b3b0-4845-8ad8-ca5f6d9b13df",
+      "title": "BrainTwin 전체 구조를 분석하고 개선점을 제안해줘. ",
+      "createdAt": 1768123781600,
+      "updatedAt": 1768124745635,
+      "messageCount": 3,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
+      "id": "conv-1768042977472-9wr7qa95r",
+      "sessionId": "939305e0-2f6c-43a4-90df-8c088e906572",
+      "title": "BrainTwin 전체 구조를 분석하고 개선점을 제안해줘. ",
+      "createdAt": 1768042977472,
+      "updatedAt": 1768047027921,
+      "messageCount": 12,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
       "id": "conv-1767954945027-t01gdbkka",
       "sessionId": "44ef8a9a-f4bf-411d-860e-b0f3e3c54b34",
       "title": "BrainTwin 전체 구조를 분석하고 개선점을 제안해줘. ",
       "createdAt": 1767954945027,
-      "updatedAt": 1767955893594,
-      "messageCount": 3,
+      "updatedAt": 1767957482524,
+      "messageCount": 6,
       "metadata": {
         "totalTokens": 0,
         "totalCostUsd": 0
@@ -433,5 +457,5 @@
       }
     }
   ],
-  "activeConversationId": "conv-1767954945027-t01gdbkka"
+  "activeConversationId": "conv-1768123781600-8ahvd4lxe"
 }
