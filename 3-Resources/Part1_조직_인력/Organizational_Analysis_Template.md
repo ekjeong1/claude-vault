@@ -2,7 +2,7 @@
 
 실제로 조직 문제를 진단하고 개선하기 위한 단계별 워크시트.
 
-[[0_Organizational_Math_Index|조직 분석 수학]] 프레임워크를 실전에 적용한다.
+[[0_Part1_Organization_Index|조직 분석 수학]] 프레임워크를 실전에 적용한다.
 
 ---
 
@@ -184,7 +184,7 @@
 
 - [[Organizational_Math_Visual_Guide|시각화 가이드]]
 - [[Organizational_Math_Case_Studies|케이스 스터디]]
-- [[0_Organizational_Math_Index|조직 분석 수학 개요]]
+- [[0_Part1_Organization_Index|조직 분석 수학 개요]]
 
 ---
 

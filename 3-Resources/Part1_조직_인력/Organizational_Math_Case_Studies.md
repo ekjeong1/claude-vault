@@ -1,6 +1,6 @@
 # 조직 분석 케이스 스터디
 
-[[0_Organizational_Math_Index|조직 분석 수학]] 프레임워크를 실제 조직에 적용한 사례 모음.
+[[0_Part1_Organization_Index|조직 분석 수학]] 프레임워크를 실제 조직에 적용한 사례 모음.
 
 각 사례는 [[그래프 이론과 중심성]], [[Rank와 Nullity]], [[군론과 대칭성]]을 순차적으로 적용하여 문제를 진단하고 해결한다.
 
@@ -345,7 +345,7 @@
 
 ## 참고
 
-- [[0_Organizational_Math_Index|조직 분석 수학 개요]]
+- [[0_Part1_Organization_Index|조직 분석 수학 개요]]
 - [[Organizational_Analysis_Template|분석 워크시트]]
 - [[Organizational_Math_Visual_Guide|시각화 가이드]]
 

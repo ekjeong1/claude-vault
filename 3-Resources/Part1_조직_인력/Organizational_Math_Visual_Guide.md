@@ -2,7 +2,7 @@
 
 수학적 프레임워크를 시각적으로 표현하는 방법론.
 
-[[0_Organizational_Math_Index|조직 분석 수학]]의 세 가지 개념을 다이어그램으로 만들어 직관적으로 이해한다.
+[[0_Part1_Organization_Index|조직 분석 수학]]의 세 가지 개념을 다이어그램으로 만들어 직관적으로 이해한다.
 
 ---
 
@@ -245,7 +245,7 @@
 - [[그래프 이론과 중심성|그래프 이론 개념]]
 - [[Rank와 Nullity|Rank-Nullity 개념]]
 - [[군론과 대칭성|군론 개념]]
-- [[0_Organizational_Math_Index|조직 분석 수학 개요]]
+- [[0_Part1_Organization_Index|조직 분석 수학 개요]]
 
 ---
 
