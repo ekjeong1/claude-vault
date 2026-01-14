@@ -36,13 +36,17 @@
 
 ## Current Focus
 
-*Will be populated as we work together*
+- RSI Day 7 완료 (10개 제안, 14→10 감소) 
+- Git Day 5-6-7 commit 완료 (28개 파일) 
+- Phase 4 시작 예정: 할루시네이션 테스트
 
 ---
 
 ## Open Threads
 
-*Nothing yet — let's start!*
+- BrainTwin RSI: Day 7까지 진행 (패턴: 수렴 신호 관찰 중) 
+- 관점 확장: BrainTwin → Life Vault 전체 시스템 
+- Git 정리 완료, 불변량 4 해결
 
 ---
 
@@ -50,8 +54,7 @@
 
 
 ## Related Notes
-- [[CLAUDE]] - Contains 60% of keywords
+- [[__CLAUDE]] - System instructions and rules
 
 
-## Related Notes
-- [[CLAUDE]]
+
