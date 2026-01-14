@@ -1,0 +1,10 @@
+{
+  "id": "braintwin-auto-rsi",
+  "name": "BrainTwin Auto RSI",
+  "version": "0.1.0",
+  "minAppVersion": "0.15.0",
+  "description": "Automatic Recursive Self-Improvement - Schedule daily Vault analysis",
+  "author": "Eunkyeong",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}

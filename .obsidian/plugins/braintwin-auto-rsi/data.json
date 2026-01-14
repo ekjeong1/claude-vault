@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "scheduleTime": "09:00",
+  "scheduleType": "daily",
+  "scheduleDayOfWeek": 1,
+  "showNotifications": true
+}
