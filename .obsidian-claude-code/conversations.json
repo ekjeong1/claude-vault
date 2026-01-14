@@ -1,12 +1,48 @@
 {
   "conversations": [
     {
+      "id": "conv-1768351949043-tncoi7lxq",
+      "sessionId": "b205809f-b799-431f-a4ed-30ff382f4707",
+      "title": "BrainTwin Vault를 분석해서 개선할 수 있는 부분을 찾아줘.",
+      "createdAt": 1768351949043,
+      "updatedAt": 1768354072849,
+      "messageCount": 3,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
+      "id": "conv-1768266491499-t17jimzyd",
+      "sessionId": "34c9304b-d9f3-4f19-a97b-f847b9176bfd",
+      "title": "루트 폴더에 있는 다음 파일들을 올바른 PARA 위치로 이동해줘:",
+      "createdAt": 1768266491499,
+      "updatedAt": 1768267538963,
+      "messageCount": 6,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
+      "id": "conv-1768265613447-ykn633yst",
+      "sessionId": "9381009c-ec30-475b-8b48-426bf6a91a06",
+      "title": "BrainTwin Vault를 분석해서 개선할 수 있는 부분을 찾아줘.",
+      "createdAt": 1768265613447,
+      "updatedAt": 1768266112864,
+      "messageCount": 2,
+      "metadata": {
+        "totalTokens": 0,
+        "totalCostUsd": 0
+      }
+    },
+    {
       "id": "conv-1768174876553-ur8ah7hp1",
       "sessionId": "b50df25f-e495-41a1-b3ed-0ff388660912",
       "title": "BrainTwin 전체 구조를 분석하고 개선점을 제안해줘. ",
       "createdAt": 1768174876553,
-      "updatedAt": 1768178392773,
-      "messageCount": 9,
+      "updatedAt": 1768178740148,
+      "messageCount": 12,
       "metadata": {
         "totalTokens": 0,
         "totalCostUsd": 0
@@ -469,5 +505,5 @@
       }
     }
   ],
-  "activeConversationId": "conv-1768174876553-ur8ah7hp1"
+  "activeConversationId": "conv-1768351949043-tncoi7lxq"
 }
