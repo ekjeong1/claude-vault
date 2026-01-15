@@ -1,7 +1,9 @@
 import { Notice, Plugin } from 'obsidian';
 import { AutoRSISettings, DEFAULT_SETTINGS, AutoRSISettingTab } from './settings';
-import { VaultAnalyzer, VaultStats } from './analyzer';
+import { VaultAnalyzer, VaultStats, Improvement } from './analyzer';
 import { RSIScheduler } from './scheduler';
+import { RSIModal } from './modal';  // ⬅️ 이 줄 추가!
+
 
 export default class BrainTwinAutoRSI extends Plugin {
     settings: AutoRSISettings;
@@ -69,17 +71,27 @@ export default class BrainTwinAutoRSI extends Plugin {
         }
 
         try {
+            // 기본 통계
             const stats = await this.analyzer.analyze();
             
-            const message = this.formatResults(stats);
+            // 개선사항 탐지
+            const improvements = await this.analyzer.findImprovements();
             
-            if (this.settings.showNotifications) {
-                new Notice(message, 10000); // Show for 10 seconds
+            // 결과 표시
+            if (improvements.length > 0) {
+                // 개선사항이 있을 때
+                this.showImprovementsModal(stats, improvements);
+            } else {
+                // 개선사항이 없을 때
+                const message = this.formatResults(stats) + '\n\n✅ 개선사항 없음!';
+                if (this.settings.showNotifications) {
+                    new Notice(message, 10000);
+                }
             }
 
-            console.log('Auto RSI Analysis Results:', stats);
+            console.log('Auto RSI Analysis Results:', { stats, improvements });
             
-            // TODO: Save to log file (Phase 2 - 내일)
+            // TODO: Save to log file (Phase 2)
             
         } catch (error) {
             console.error('Auto RSI analysis failed:', error);
@@ -87,6 +99,13 @@ export default class BrainTwinAutoRSI extends Plugin {
         }
     }
 
+    // ⬇️ 이 메서드가 클래스 안에 있어야 합니다! ⬇️
+    private showImprovementsModal(stats: VaultStats, improvements: Improvement[]) {
+        // 모달 열기
+        const modal = new RSIModal(this.app, stats, improvements);
+        modal.open();
+    }
+    
     private formatResults(stats: VaultStats): string {
         return `✅ Auto RSI Complete!\n` +
                `📝 Notes: ${stats.totalNotes}\n` +

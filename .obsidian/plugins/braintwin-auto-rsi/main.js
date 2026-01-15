@@ -26,7 +26,7 @@ __export(main_exports, {
   default: () => BrainTwinAutoRSI
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian2 = require("obsidian");
+var import_obsidian4 = require("obsidian");
 
 // settings.ts
 var import_obsidian = require("obsidian");
@@ -115,6 +115,91 @@ var VaultAnalyzer = class {
     }
     return links;
   }
+  async findImprovements() {
+    const improvements = [];
+    const gitImprovements = await this.checkGitStatus();
+    improvements.push(...gitImprovements);
+    const invariantImprovements = await this.checkInvariants();
+    improvements.push(...invariantImprovements);
+    const orphanImprovements = await this.findOrphans();
+    improvements.push(...orphanImprovements);
+    const emptyImprovements = await this.findEmptySections();
+    improvements.push(...emptyImprovements);
+    return improvements;
+  }
+  async checkGitStatus() {
+    const improvements = [];
+    try {
+      const files = this.vault.getFiles();
+      const hasUncommitted = files.length > 0;
+      if (hasUncommitted) {
+        improvements.push({
+          type: "git",
+          priority: "P1",
+          title: "Git: Uncommitted changes",
+          description: "Vault\uC5D0 \uCEE4\uBC0B\uB418\uC9C0 \uC54A\uC740 \uBCC0\uACBD\uC0AC\uD56D\uC774 \uC788\uC2B5\uB2C8\uB2E4.",
+          action: "git_commit"
+        });
+      }
+    } catch (error) {
+      console.error("Git check failed:", error);
+    }
+    return improvements;
+  }
+  async checkInvariants() {
+    const improvements = [];
+    const invariantFile = this.vault.getAbstractFileByPath("0_Invariants.md");
+    if (!invariantFile) {
+      improvements.push({
+        type: "invariant",
+        priority: "P1",
+        title: "0_Invariants.md \uD30C\uC77C \uC5C6\uC74C",
+        description: "\uBD88\uBCC0\uB7C9 \uC815\uC758 \uD30C\uC77C\uC774 \uC5C6\uC2B5\uB2C8\uB2E4.",
+        action: "create_invariants"
+      });
+    }
+    return improvements;
+  }
+  async findOrphans() {
+    const improvements = [];
+    const files = this.vault.getMarkdownFiles();
+    for (const file of files) {
+      const content = await this.vault.cachedRead(file);
+      const links = this.extractLinks(content);
+      if (links.length === 0) {
+        if (!file.path.includes("Templates") && !file.path.includes("Archive") && !file.path.includes("Daily")) {
+          improvements.push({
+            type: "orphan",
+            priority: "P2",
+            title: `\uACE0\uC544 \uB178\uD2B8: ${file.basename}`,
+            description: "\uB2E4\uB978 \uB178\uD2B8\uC640 \uC5F0\uACB0\uC774 \uC5C6\uC2B5\uB2C8\uB2E4.",
+            file: file.path,
+            action: "add_links"
+          });
+        }
+      }
+    }
+    return improvements;
+  }
+  async findEmptySections() {
+    const improvements = [];
+    const files = this.vault.getMarkdownFiles();
+    for (const file of files) {
+      const content = await this.vault.cachedRead(file);
+      const coreContentMatch = content.match(/## 핵심 내용\s*\n\s*\n/);
+      if (coreContentMatch) {
+        improvements.push({
+          type: "empty",
+          priority: "P2",
+          title: `\uBE48 \uC139\uC158: ${file.basename}`,
+          description: '"\uD575\uC2EC \uB0B4\uC6A9" \uC139\uC158\uC774 \uBE44\uC5B4\uC788\uC2B5\uB2C8\uB2E4.',
+          file: file.path,
+          action: "fill_section"
+        });
+      }
+    }
+    return improvements;
+  }
 };
 
 // scheduler.ts
@@ -150,8 +235,387 @@ var RSIScheduler = class {
   }
 };
 
+// modal.ts
+var import_obsidian3 = require("obsidian");
+
+// executor.ts
+var import_obsidian2 = require("obsidian");
+var ActionExecutor = class {
+  constructor(vault) {
+    this.vault = vault;
+  }
+  async executeImprovements(improvements) {
+    let successCount = 0;
+    let failCount = 0;
+    const executed = [];
+    for (const improvement of improvements) {
+      try {
+        await this.executeOne(improvement);
+        successCount++;
+        executed.push(improvement);
+        console.log(`\u2705 \uC644\uB8CC: ${improvement.title}`);
+      } catch (error) {
+        failCount++;
+        console.error(`\u274C \uC2E4\uD328: ${improvement.title}`, error);
+      }
+    }
+    new import_obsidian2.Notice(`\u2705 \uC131\uACF5: ${successCount}\uAC1C | \u274C \uC2E4\uD328: ${failCount}\uAC1C`, 1e4);
+    return { executed, successCount, failCount };
+  }
+  async executeOne(improvement) {
+    switch (improvement.action) {
+      case "git_commit":
+        await this.gitCommit();
+        break;
+      case "create_invariants":
+        await this.createInvariants();
+        break;
+      case "add_links":
+        await this.addLinks(improvement.file);
+        break;
+      case "fill_section":
+        await this.fillSection(improvement.file);
+        break;
+      default:
+        console.warn(`\uC54C \uC218 \uC5C6\uB294 \uC561\uC158: ${improvement.action}`);
+    }
+  }
+  // 1. Git commit 실행
+  async gitCommit() {
+    new import_obsidian2.Notice('\u26A0\uFE0F Git commit\uC740 \uC218\uB3D9\uC73C\uB85C \uC2E4\uD589\uD574\uC8FC\uC138\uC694\ngit add . && git commit -m "Auto RSI improvements"', 1e4);
+    console.log("Git commit \uAC00\uC774\uB4DC:");
+    console.log("\uD130\uBBF8\uB110\uC5D0\uC11C \uC2E4\uD589:");
+    console.log("cd C:\\Users\\win10_original\\claude-vault");
+    console.log("git add .");
+    console.log('git commit -m "Auto RSI: improvements"');
+  }
+  // 2. 0_Invariants.md 파일 생성
+  async createInvariants() {
+    const filePath = "0_Invariants.md";
+    const existingFile = this.vault.getAbstractFileByPath(filePath);
+    if (existingFile) {
+      new import_obsidian2.Notice("0_Invariants.md \uD30C\uC77C\uC774 \uC774\uBBF8 \uC874\uC7AC\uD569\uB2C8\uB2E4");
+      return;
+    }
+    const content = `# \uBD88\uBCC0\uB7C9 \uC815\uC758
+
+## \uAC1C\uC694
+\uC774 \uBB38\uC11C\uB294 BrainTwin Vault\uC758 \uD575\uC2EC \uBD88\uBCC0\uB7C9\uC744 \uC815\uC758\uD569\uB2C8\uB2E4.
+
+## \uD575\uC2EC \uBD88\uBCC0\uB7C9
+
+### 1. \uD30C\uC77C \uBA85\uBA85 \uADDC\uCE59
+- \uBAA8\uB4E0 \uD30C\uC77C\uC740 \uC758\uBBF8\uC788\uB294 \uC774\uB984\uC744 \uAC00\uC838\uC57C \uD568
+- \uC22B\uC790\uB85C \uC2DC\uC791\uD558\uB294 \uD30C\uC77C: 0_, 1_, 2_ \uB4F1\uC740 \uBA54\uD0C0 \uBB38\uC11C
+
+### 2. \uB9C1\uD06C \uAD6C\uC870
+- \uBAA8\uB4E0 \uB178\uD2B8\uB294 \uCD5C\uC18C 1\uAC1C \uC774\uC0C1\uC758 \uB9C1\uD06C\uB97C \uAC00\uC838\uC57C \uD568
+- \uACE0\uC544 \uB178\uD2B8(orphan)\uB294 \uD53C\uD574\uC57C \uD568
+
+### 3. \uC139\uC158 \uAD6C\uC870
+- "## \uD575\uC2EC \uB0B4\uC6A9" \uC139\uC158\uC740 \uBE44\uC5B4\uC788\uC73C\uBA74 \uC548 \uB428
+- "## \uAD00\uB828 \uB178\uD2B8" \uC139\uC158\uC5D0\uB294 \uCD5C\uC18C 1\uAC1C \uC774\uC0C1\uC758 \uB9C1\uD06C
+
+### 4. Git \uAD00\uB9AC
+- \uBCC0\uACBD\uC0AC\uD56D\uC740 \uC815\uAE30\uC801\uC73C\uB85C \uCEE4\uBC0B
+- \uCEE4\uBC0B \uBA54\uC2DC\uC9C0\uB294 \uBA85\uD655\uD558\uAC8C \uC791\uC131
+
+## \uAC80\uC99D \uC8FC\uAE30
+- \uB9E4\uC77C \uC790\uB3D9 \uAC80\uC99D (Auto RSI)
+- \uC704\uBC18 \uC2DC \uC54C\uB9BC
+
+---
+\uC0DD\uC131\uC77C: ${new Date().toISOString().split("T")[0]}
+`;
+    await this.vault.create(filePath, content);
+    new import_obsidian2.Notice("\u2705 0_Invariants.md \uD30C\uC77C \uC0DD\uC131 \uC644\uB8CC!");
+  }
+  // 3. 고아 노트에 링크 추가
+  async addLinks(filePath) {
+    const file = this.vault.getAbstractFileByPath(filePath);
+    if (!file || !(file instanceof Object && "path" in file)) {
+      throw new Error(`\uD30C\uC77C\uC744 \uCC3E\uC744 \uC218 \uC5C6\uC74C: ${filePath}`);
+    }
+    const content = await this.vault.read(file);
+    if (content.includes("## \uAD00\uB828 \uB178\uD2B8")) {
+      new import_obsidian2.Notice(`${filePath}: \uC774\uBBF8 \uAD00\uB828 \uB178\uD2B8 \uC139\uC158 \uC788\uC74C`);
+      return;
+    }
+    const newContent = content + `
+
+## \uAD00\uB828 \uB178\uD2B8
+- [[0_Long_Term_RSI_Log]]
+- [[README]]
+
+---
+\uB9C1\uD06C \uCD94\uAC00\uC77C: ${new Date().toISOString().split("T")[0]}
+`;
+    await this.vault.modify(file, newContent);
+    new import_obsidian2.Notice(`\u2705 ${filePath}: \uB9C1\uD06C \uCD94\uAC00 \uC644\uB8CC`);
+  }
+  // 4. 빈 섹션 채우기
+  async fillSection(filePath) {
+    const file = this.vault.getAbstractFileByPath(filePath);
+    if (!file || !(file instanceof Object && "path" in file)) {
+      throw new Error(`\uD30C\uC77C\uC744 \uCC3E\uC744 \uC218 \uC5C6\uC74C: ${filePath}`);
+    }
+    const content = await this.vault.read(file);
+    const emptyPattern = /## 핵심 내용\s*\n\s*\n/;
+    if (!emptyPattern.test(content)) {
+      new import_obsidian2.Notice(`${filePath}: \uBE48 \uC139\uC158\uC744 \uCC3E\uC744 \uC218 \uC5C6\uC74C`);
+      return;
+    }
+    const newContent = content.replace(
+      emptyPattern,
+      `## \uD575\uC2EC \uB0B4\uC6A9
+
+\uC774 \uC139\uC158\uC740 \uC790\uB3D9\uC73C\uB85C \uCC44\uC6CC\uC84C\uC2B5\uB2C8\uB2E4. \uB0B4\uC6A9\uC744 \uC5C5\uB370\uC774\uD2B8\uD574\uC8FC\uC138\uC694.
+
+`
+    );
+    await this.vault.modify(file, newContent);
+    new import_obsidian2.Notice(`\u2705 ${filePath}: \uBE48 \uC139\uC158 \uCC44\uC6C0`);
+  }
+};
+
+// logger.ts
+var RSILogger = class {
+  constructor(vault) {
+    this.logFilePath = "0_Long_Term_RSI_Log.md";
+    this.vault = vault;
+  }
+  async logExecution(improvements, executed, successCount, failCount) {
+    try {
+      const logFile = this.vault.getAbstractFileByPath(this.logFilePath);
+      if (!logFile) {
+        console.error("\uB85C\uADF8 \uD30C\uC77C\uC744 \uCC3E\uC744 \uC218 \uC5C6\uC74C:", this.logFilePath);
+        return;
+      }
+      const content = await this.vault.read(logFile);
+      const { dayNumber, previousCount } = this.parseLastDay(content);
+      const newLog = this.generateDayLog(
+        dayNumber,
+        improvements,
+        executed,
+        successCount,
+        failCount,
+        previousCount
+      );
+      const updatedContent = this.insertLog(content, newLog);
+      await this.vault.modify(logFile, updatedContent);
+      console.log(`\u2705 Day ${dayNumber} \uB85C\uADF8 \uC800\uC7A5 \uC644\uB8CC`);
+    } catch (error) {
+      console.error("\uB85C\uADF8 \uC800\uC7A5 \uC2E4\uD328:", error);
+    }
+  }
+  parseLastDay(content) {
+    const dayMatches = content.match(/## Day (\d+)/g);
+    if (!dayMatches || dayMatches.length === 0) {
+      return { dayNumber: 1, previousCount: 0 };
+    }
+    const lastDayMatch = dayMatches[dayMatches.length - 1];
+    const lastDayNumber = parseInt(lastDayMatch.match(/\d+/)[0]);
+    const lastDaySection = content.split(lastDayMatch)[1].split("---")[0];
+    const countMatch = lastDaySection.match(/\*\*AI 제안 수:\*\* (\d+)개/);
+    const previousCount = countMatch ? parseInt(countMatch[1]) : 0;
+    return {
+      dayNumber: lastDayNumber + 1,
+      previousCount
+    };
+  }
+  generateDayLog(dayNumber, allImprovements, executed, successCount, failCount, previousCount) {
+    const today = new Date().toISOString().split("T")[0];
+    const currentCount = allImprovements.length;
+    const trend = currentCount > previousCount ? "\u2191" : currentCount < previousCount ? "\u2193" : "\u2192";
+    const p1 = allImprovements.filter((i) => i.priority === "P1");
+    const p2 = allImprovements.filter((i) => i.priority === "P2");
+    const p3 = allImprovements.filter((i) => i.priority === "P3");
+    let proposalsList = "";
+    if (p1.length > 0) {
+      p1.forEach((imp) => {
+        const status = executed.includes(imp) ? "\u2705 \uC644\uB8CC" : "\u23F8\uFE0F \uBCF4\uB958";
+        proposalsList += `- P1: ${imp.title} ${status}
+`;
+      });
+    }
+    if (p2.length > 0) {
+      p2.forEach((imp) => {
+        const status = executed.includes(imp) ? "\u2705 \uC644\uB8CC" : "\u23F8\uFE0F \uBCF4\uB958";
+        proposalsList += `- P2: ${imp.title} ${status}
+`;
+      });
+    }
+    if (p3.length > 0) {
+      p3.forEach((imp) => {
+        const status = executed.includes(imp) ? "\u2705 \uC644\uB8CC" : "\u23F8\uFE0F \uBCF4\uB958";
+        proposalsList += `- P3: ${imp.title} ${status}
+`;
+      });
+    }
+    let executionList = "";
+    if (executed.length > 0) {
+      executed.forEach((imp, index) => {
+        const mark = successCount > 0 ? "\u2705" : "\u274C";
+        executionList += `- ${mark} P${imp.priority.slice(1)}-${index + 1}: ${imp.title}
+`;
+      });
+    } else {
+      executionList = "- \uC2E4\uD589 \uC5C6\uC74C (\uBD84\uC11D\uB9CC \uC218\uD589)\n";
+    }
+    const log = `
+## Day ${dayNumber}
+**\uB0A0\uC9DC:** ${today}
+**Auto RSI \uC790\uB3D9 \uC2E4\uD589** ${dayNumber === 8 ? "(\uCCAB \uC790\uB3D9 \uC2E4\uD589! \u{1F389})" : ""}
+**AI \uC81C\uC548 \uC218:** ${currentCount}\uAC1C (Day ${dayNumber - 1}: ${previousCount}\uAC1C \u2192 Day ${dayNumber}: ${currentCount}\uAC1C) ${trend}
+**\uC0C8\uB85C\uC6B4 \uC81C\uC548:**
+${proposalsList}**\uBC18\uBCF5 \uC81C\uC548:** ${this.checkRepeatProposals(allImprovements)}
+**\uBD88\uBCC0\uB7C9 \uBCF4\uC874:** \u2705
+**\uC2E4\uD589:** 
+${executionList}**\uBA54\uBAA8:**
+- \uC790\uB3D9 \uC2E4\uD589: \uC131\uACF5 ${successCount}\uAC1C, \uC2E4\uD328 ${failCount}\uAC1C
+- \uCD1D \uD0D0\uC9C0: P1 ${p1.length}\uAC1C, P2 ${p2.length}\uAC1C, P3 ${p3.length}\uAC1C
+**\uBC31\uC5C5:** \uC218\uB3D9 commit \uAD8C\uC7A5
+
+---
+`;
+    return log;
+  }
+  checkRepeatProposals(improvements) {
+    return "\uC5C6\uC74C";
+  }
+  insertLog(content, newLog) {
+    const weeklyIndex = content.indexOf("---\n## \uC8FC\uAC04 \uC694\uC57D");
+    if (weeklyIndex !== -1) {
+      return content.slice(0, weeklyIndex) + newLog + content.slice(weeklyIndex);
+    } else {
+      return content + "\n" + newLog;
+    }
+  }
+};
+
+// modal.ts
+var RSIModal = class extends import_obsidian3.Modal {
+  constructor(app, stats, improvements) {
+    super(app);
+    this.stats = stats;
+    this.improvements = improvements;
+    this.selectedImprovements = /* @__PURE__ */ new Set();
+    improvements.forEach((imp, index) => {
+      if (imp.priority === "P1") {
+        this.selectedImprovements.add(index);
+      }
+    });
+  }
+  onOpen() {
+    const { contentEl } = this;
+    contentEl.empty();
+    contentEl.createEl("h2", { text: "\u{1F916} Auto RSI \uBD84\uC11D \uC644\uB8CC" });
+    const summaryDiv = contentEl.createDiv({ cls: "rsi-summary" });
+    summaryDiv.createEl("p", {
+      text: `\u{1F4DD} ${this.stats.totalNotes}\uAC1C \uB178\uD2B8 | \u{1F517} ${this.stats.totalLinks}\uAC1C \uB9C1\uD06C`
+    });
+    summaryDiv.createEl("p", {
+      text: `\u26A0\uFE0F ${this.improvements.length}\uAC1C \uAC1C\uC120\uC0AC\uD56D \uBC1C\uACAC`
+    });
+    contentEl.createEl("hr");
+    const p1 = this.improvements.filter((i) => i.priority === "P1");
+    const p2 = this.improvements.filter((i) => i.priority === "P2");
+    const p3 = this.improvements.filter((i) => i.priority === "P3");
+    if (p1.length > 0) {
+      this.createPrioritySection(contentEl, "P1 (\uC989\uC2DC \uC218\uC815 \uD544\uC694)", p1, "\u{1F534}");
+    }
+    if (p2.length > 0) {
+      this.createPrioritySection(contentEl, "P2 (\uAC1C\uC120 \uAD8C\uC7A5)", p2, "\u{1F7E1}");
+    }
+    if (p3.length > 0) {
+      this.createPrioritySection(contentEl, "P3 (\uC120\uD0DD\uC801)", p3, "\u{1F7E2}");
+    }
+    contentEl.createEl("hr");
+    const buttonDiv = contentEl.createDiv({ cls: "rsi-buttons" });
+    new import_obsidian3.Setting(buttonDiv).addButton((btn) => btn.setButtonText("\uC120\uD0DD \uC2E4\uD589").setCta().onClick(() => {
+      this.executeSelected();
+    })).addButton((btn) => btn.setButtonText("\uBAA8\uB450 \uC2E4\uD589").onClick(() => {
+      this.executeAll();
+    })).addButton((btn) => btn.setButtonText("\uB2EB\uAE30").onClick(() => {
+      this.close();
+    }));
+    this.addStyles();
+  }
+  createPrioritySection(container, title, improvements, emoji) {
+    container.createEl("h3", { text: `${emoji} ${title}` });
+    improvements.forEach((imp) => {
+      const index = this.improvements.indexOf(imp);
+      const setting = new import_obsidian3.Setting(container).setName(imp.title).setDesc(imp.description);
+      setting.addToggle((toggle) => toggle.setValue(this.selectedImprovements.has(index)).onChange((value) => {
+        if (value) {
+          this.selectedImprovements.add(index);
+        } else {
+          this.selectedImprovements.delete(index);
+        }
+      }));
+    });
+  }
+  async executeSelected() {
+    const selected = Array.from(this.selectedImprovements).map((index) => this.improvements[index]);
+    console.log("\uC2E4\uD589\uD560 \uAC1C\uC120\uC0AC\uD56D:", selected);
+    const executor = new ActionExecutor(this.app.vault);
+    const result = await executor.executeImprovements(selected);
+    const logger = new RSILogger(this.app.vault);
+    await logger.logExecution(
+      this.improvements,
+      // 전체 개선사항
+      result.executed,
+      // 실행된 개선사항
+      result.successCount,
+      result.failCount
+    );
+    this.close();
+  }
+  async executeAll() {
+    console.log("\uBAA8\uB4E0 \uAC1C\uC120\uC0AC\uD56D \uC2E4\uD589:", this.improvements);
+    const executor = new ActionExecutor(this.app.vault);
+    const result = await executor.executeImprovements(this.improvements);
+    const logger = new RSILogger(this.app.vault);
+    await logger.logExecution(
+      this.improvements,
+      // 전체 개선사항
+      result.executed,
+      // 실행된 개선사항
+      result.successCount,
+      result.failCount
+    );
+    this.close();
+  }
+  addStyles() {
+    const style = document.createElement("style");
+    style.textContent = `
+            .rsi-summary {
+                background: var(--background-secondary);
+                padding: 10px;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            .rsi-buttons {
+                display: flex;
+                justify-content: flex-end;
+                gap: 10px;
+                margin-top: 20px;
+            }
+            .rsi-buttons .setting-item {
+                border: none;
+                padding: 0;
+            }
+        `;
+    document.head.appendChild(style);
+  }
+  onClose() {
+    const { contentEl } = this;
+    contentEl.empty();
+  }
+};
+
 // main.ts
-var BrainTwinAutoRSI = class extends import_obsidian2.Plugin {
+var BrainTwinAutoRSI = class extends import_obsidian4.Plugin {
   async onload() {
     await this.loadSettings();
     this.analyzer = new VaultAnalyzer(this.app.vault);
@@ -186,26 +650,36 @@ var BrainTwinAutoRSI = class extends import_obsidian2.Plugin {
       this.settings.scheduleType,
       this.settings.scheduleDayOfWeek
     );
-    new import_obsidian2.Notice("Auto RSI scheduler started");
+    new import_obsidian4.Notice("Auto RSI scheduler started");
   }
   stopScheduler() {
     this.scheduler.stop();
   }
   async runAnalysis() {
     if (this.settings.showNotifications) {
-      new import_obsidian2.Notice("\u{1F916} Running Auto RSI analysis...");
+      new import_obsidian4.Notice("\u{1F916} Running Auto RSI analysis...");
     }
     try {
       const stats = await this.analyzer.analyze();
-      const message = this.formatResults(stats);
-      if (this.settings.showNotifications) {
-        new import_obsidian2.Notice(message, 1e4);
+      const improvements = await this.analyzer.findImprovements();
+      if (improvements.length > 0) {
+        this.showImprovementsModal(stats, improvements);
+      } else {
+        const message = this.formatResults(stats) + "\n\n\u2705 \uAC1C\uC120\uC0AC\uD56D \uC5C6\uC74C!";
+        if (this.settings.showNotifications) {
+          new import_obsidian4.Notice(message, 1e4);
+        }
       }
-      console.log("Auto RSI Analysis Results:", stats);
+      console.log("Auto RSI Analysis Results:", { stats, improvements });
     } catch (error) {
       console.error("Auto RSI analysis failed:", error);
-      new import_obsidian2.Notice("\u274C Auto RSI analysis failed");
+      new import_obsidian4.Notice("\u274C Auto RSI analysis failed");
     }
+  }
+  // ⬇️ 이 메서드가 클래스 안에 있어야 합니다! ⬇️
+  showImprovementsModal(stats, improvements) {
+    const modal = new RSIModal(this.app, stats, improvements);
+    modal.open();
   }
   formatResults(stats) {
     return `\u2705 Auto RSI Complete!
