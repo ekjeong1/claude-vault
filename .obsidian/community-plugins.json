@@ -6,5 +6,7 @@
   "vibe-note-connector",
   "vibe-vault-monitor",
   "braintwin-auto-rsi",
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-shellcommands",
+  "templater-obsidian"
 ]
