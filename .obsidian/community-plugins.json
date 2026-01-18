@@ -3,10 +3,9 @@
   "vibesidian",
   "obsidian-claude-code",
   "obsidian-ai-agent",
-  "vibe-note-connector",
-  "vibe-vault-monitor",
   "braintwin-auto-rsi",
   "obsidian-git",
   "obsidian-shellcommands",
-  "templater-obsidian"
+  "templater-obsidian",
+  "vibe-note-connector"
 ]
