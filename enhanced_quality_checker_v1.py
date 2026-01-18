@@ -1,40 +1,31 @@
 #!/usr/bin/env python3
 """
-Enhanced Quality Checker for Obsidian RSI v2.0
-0_Invariants.md 기준 완전 통합 + 보고서 생성
+Enhanced Quality Checker for Obsidian RSI
+확장된 Invariants 기반 품질 검증
 """
 
 import re
 from pathlib import Path
 from typing import List, Dict, Tuple
-from datetime import datetime
-from collections import Counter
 
 class QualityChecker:
     """
     노트 품질 검증 클래스
-    0_Invariants.md 기준 사용
     """
-
-    def __init__(self, vault_path, invariants_path="0_Invariants.md"):
-        self.vault_path = Path(vault_path)
-        self.invariants_path = self.vault_path / invariants_path
+    
+    def __init__(self, invariants_path=None):
         self.issues = []
-        self.meta_files_prefixes = ['0_', '1_', '2_', '3_', '_']
-        
-        # Invariants 로드 (선택적)
-        if self.invariants_path.exists():
-            print(f"📜 Loading invariants from: {invariants_path}")
-        else:
-            print(f"⚠️  Invariants file not found, using built-in criteria")
-
+        self.meta_files_prefixes = ['0_', '1_', '2_', '_']
+    
     # ===== Part 1: 구조적 품질 (기존) =====
-
+    
     def check_file_naming(self, file_path: Path) -> List[Dict]:
-        """파일 명칭 규칙 검증"""
+        """
+        파일 명명 규칙 검증
+        """
         issues = []
         name = file_path.stem
-
+        
         # Untitled 체크
         if 'Untitled' in name:
             issues.append({
@@ -44,23 +35,25 @@ class QualityChecker:
                 'issue': f"Untitled 파일: {name}",
                 'suggestion': "의미있는 이름으로 변경 필요"
             })
-
+        
         return issues
-
+    
     def check_links(self, content: str, file_path: Path) -> List[Dict]:
-        """링크 구조 검증"""
+        """
+        링크 구조 검증
+        """
         issues = []
-
+        
         # 메타 파일 제외
         if any(file_path.name.startswith(prefix) for prefix in self.meta_files_prefixes):
             return issues
-
+        
         # 링크 추출 [[링크]]
         links = re.findall(r'\[\[(.*?)\]\]', content)
-
+        
         if len(links) == 0:
             issues.append({
-                'priority': 'P1',
+                'priority': 'P2',
                 'category': '링크',
                 'file': file_path.name,
                 'issue': "고아 노트 (링크 없음)",
@@ -74,22 +67,24 @@ class QualityChecker:
                 'issue': "링크가 1개뿐 (격리 위험)",
                 'suggestion': "2개 이상의 관련 개념 연결 권장"
             })
-
+        
         return issues
-
+    
     def check_sections(self, content: str, file_path: Path) -> List[Dict]:
-        """섹션 구조 검증"""
+        """
+        섹션 구조 검증
+        """
         issues = []
-
+        
         # 섹션 추출
         sections = re.findall(r'^##\s+(.+)$', content, re.MULTILINE)
-
+        
         # 핵심 내용 섹션 체크
         core_content_section = None
         for match in re.finditer(r'^##\s+핵심\s*내용\s*$(.*?)(?=^##|\Z)', content, re.MULTILINE | re.DOTALL):
             core_content_section = match.group(1).strip()
             break
-
+        
         if core_content_section is not None:
             if len(core_content_section) < 10:
                 issues.append({
@@ -99,21 +94,23 @@ class QualityChecker:
                     'issue': "'핵심 내용' 섹션이 비어있음",
                     'suggestion': "핵심 내용 작성 필요"
                 })
-
+        
         return issues
-
-    # ===== Part 2: 내용적 품질 (고급) =====
-
+    
+    # ===== Part 2: 내용적 품질 (신규) =====
+    
     def check_content_quality(self, content: str, file_path: Path) -> List[Dict]:
-        """내용 충실도 검증"""
+        """
+        내용 충실성 검증
+        """
         issues = []
-
+        
         # 핵심 내용 길이 체크
         core_content_section = None
         for match in re.finditer(r'^##\s+핵심\s*내용\s*$(.*?)(?=^##|\Z)', content, re.MULTILINE | re.DOTALL):
             core_content_section = match.group(1).strip()
             break
-
+        
         if core_content_section:
             if len(core_content_section) < 150:
                 issues.append({
@@ -123,9 +120,9 @@ class QualityChecker:
                     'issue': f"핵심 내용이 짧음 ({len(core_content_section)}자)",
                     'suggestion': "최소 150자 이상 작성 권장"
                 })
-
+            
             # 모호한 표현 체크
-            vague_terms = ['여러', '여러 가지', '다양한', '등등']
+            vague_terms = ['등등', '등과 같은', '여러', '다양한']
             found_vague = [term for term in vague_terms if term in core_content_section]
             if found_vague:
                 issues.append({
@@ -135,17 +132,19 @@ class QualityChecker:
                     'issue': f"모호한 표현 발견: {', '.join(found_vague)}",
                     'suggestion': "구체적인 표현으로 변경 권장"
                 })
-
+        
         return issues
-
+    
     def check_clarity(self, content: str, file_path: Path) -> List[Dict]:
-        """명령 명확성 검증"""
+        """
+        설명 명확성 검증
+        """
         issues = []
-
+        
         # 문장 길이 체크
         sentences = re.split(r'[.!?]\s+', content)
         long_sentences = [s for s in sentences if len(s) > 100]
-
+        
         if len(long_sentences) > 5:
             issues.append({
                 'priority': 'P3',
@@ -154,30 +153,32 @@ class QualityChecker:
                 'issue': f"{len(long_sentences)}개 문장이 너무 김 (100자 이상)",
                 'suggestion': "긴 문장을 짧게 분리 권장"
             })
-
+        
         return issues
-
+    
     def check_connectivity(self, content: str, file_path: Path) -> List[Dict]:
-        """개념 연결성 검증"""
+        """
+        개념 연결성 검증
+        """
         issues = []
-
+        
         # 메타 파일 제외
         if any(file_path.name.startswith(prefix) for prefix in self.meta_files_prefixes):
             return issues
-
+        
         # 링크와 맥락 체크
         links = re.findall(r'\[\[(.*?)\]\]', content)
-
+        
         # 맥락 있는 링크 (링크 주변에 설명이 있는지)
         contextual_links = 0
         for match in re.finditer(r'(.{20})\[\[.*?\]\](.{20})', content):
             before = match.group(1).strip()
             after = match.group(2).strip()
-            # 앞뒤에 글자가 있으면 맥락 있는 링크로 판단
-            if (any('\uac00' <= c <= '\ud7a3' for c in before) or
+            # 앞뒤에 한글이 있으면 맥락 있는 링크로 판단
+            if (any('\uac00' <= c <= '\ud7a3' for c in before) or 
                 any('\uac00' <= c <= '\ud7a3' for c in after)):
                 contextual_links += 1
-
+        
         if links and contextual_links / len(links) < 0.3:
             issues.append({
                 'priority': 'P3',
@@ -186,22 +187,24 @@ class QualityChecker:
                 'issue': f"링크 중 맥락 없는 것이 많음 ({contextual_links}/{len(links)})",
                 'suggestion': "링크에 설명 추가 권장"
             })
-
+        
         return issues
-
+    
     def check_rag_optimization(self, content: str, file_path: Path) -> List[Dict]:
-        """RAG 최적화 검증 (Phase 5 기준)"""
+        """
+        RAG 최적화 검증 (Phase 5 기준)
+        """
         issues = []
-
+        
         # 메타 파일 제외
         if any(file_path.name.startswith(prefix) for prefix in self.meta_files_prefixes):
             return issues
-
+        
         char_count = len(content)
         sections = re.findall(r'^##\s+', content, re.MULTILINE)
         section_count = len(sections)
-
-        # 길이 체크 (1,500-2,000자 권장)
+        
+        # 길이 체크
         if char_count < 1000:
             issues.append({
                 'priority': 'P2',
@@ -216,10 +219,10 @@ class QualityChecker:
                 'category': 'RAG 최적화',
                 'file': file_path.name,
                 'issue': f"노트가 너무 김 ({char_count}자)",
-                'suggestion': "2,000자 이하 권장 - 분할 고려"
+                'suggestion': "2,000자 이하 권장 - V3의 역설 참고"
             })
-
-        # 섹션 수 체크 (5-8개 권장)
+        
+        # 섹션 수 체크
         if section_count > 0:
             if section_count < 4:
                 issues.append({
@@ -237,8 +240,8 @@ class QualityChecker:
                     'issue': f"섹션 과다 ({section_count}개)",
                     'suggestion': "5-8개 섹션 권장"
                 })
-
-            # 정보 밀도 체크 (200-250자/섹션)
+            
+            # 정보 밀도
             density = char_count / section_count
             if density < 150:
                 issues.append({
@@ -256,32 +259,34 @@ class QualityChecker:
                     'issue': f"정보 밀도 높음 ({density:.0f}자/섹션)",
                     'suggestion': "200-250자/섹션 권장"
                 })
-
+        
         return issues
-
+    
     def check_example_quality(self, content: str, file_path: Path) -> List[Dict]:
-        """예제 품질 검증"""
+        """
+        예제 품질 검증
+        """
         issues = []
-
+        
         # 예제/사례 섹션 찾기
         example_sections = re.findall(
-            r'^###\s+(?:사례|예제|Example)\s+\d+:?\s*(.+?)$\n(.*?)(?=^###|^##|\Z)',
+            r'^###\s+(사례|예제|Example)\s+\d+:?\s*(.+?)$\n(.*?)(?=^###|^##|\Z)',
             content,
             re.MULTILINE | re.DOTALL
         )
-
+        
         if len(example_sections) > 4:
             issues.append({
                 'priority': 'P3',
                 'category': '예제 품질',
                 'file': file_path.name,
                 'issue': f"예제가 너무 많음 ({len(example_sections)}개)",
-                'suggestion': "2-3개 권장 (Phase 5: 중복 문제)"
+                'suggestion': "2-3개 권장 (Phase 5: V3의 3개 강제 문제)"
             })
-
+        
         # 각 예제 품질 체크
-        vague_terms = ['어떤', '일정', '일반']
-        for i, (title, content_part) in enumerate(example_sections, 1):
+        vague_terms = ['어떤', '특정', '일부']
+        for i, (label, title, content_part) in enumerate(example_sections, 1):
             # 추상적 표현 체크
             if any(term in title or term in content_part for term in vague_terms):
                 issues.append({
@@ -291,7 +296,7 @@ class QualityChecker:
                     'issue': f"예제 {i}가 추상적",
                     'suggestion': "구체적인 이름/숫자 포함 권장"
                 })
-
+            
             # 길이 체크
             if len(content_part.strip()) < 100:
                 issues.append({
@@ -301,61 +306,15 @@ class QualityChecker:
                     'issue': f"예제 {i} 설명이 짧음 ({len(content_part)}자)",
                     'suggestion': "최소 100자 이상 권장"
                 })
-
-        return issues
-
-    def check_math_requirement(self, content: str, file_path: Path) -> List[Dict]:
-        """수학식 요구사항 검증 (BrainTwin 특화)"""
-        issues = []
-        
-        # 메타 파일 제외
-        name_lower = file_path.name.lower()
-        meta_patterns = ['0_', '1_', '2_', '3_', '_',
-                        'index', 'log', 'readme', 'guide', 'agenda']
-        
-        if any(pattern in name_lower for pattern in meta_patterns):
-            return []  # 메타 파일은 체크하지 않음
-        
-        # 개념 노트 판별
-        concept_keywords = ['rank', 'nullity', '군론', '대칭성',
-                           '그래프', '중심성', '정리', 'theorem',
-                           '이론', 'theory', '개념']
-        
-        # 파일명 또는 내용에 개념 키워드
-        has_concept_keyword = any(kw in name_lower for kw in concept_keywords)
-        
-        # "## 개념" or "## 정의" 섹션
-        has_concept_section = bool(re.search(r'^##\s+(개념|정의)', 
-                                            content, re.MULTILINE))
-        
-        is_concept_note = has_concept_keyword or has_concept_section
-        
-        if not is_concept_note:
-            return []  # 개념 노트 아니면 체크 안함
-        
-        # 수학식 체크
-        # $...$ inline math (최소 2개 $ 필요)
-        has_inline = content.count('$') >= 2
-        # $$...$$ block math
-        has_block = '$$' in content
-        
-        has_math = has_inline or has_block
-        
-        if not has_math:
-            issues.append({
-                'priority': 'P1',
-                'category': '수학식',
-                'file': file_path.name,
-                'issue': '개념 노트에 수학식 없음',
-                'suggestion': 'LaTeX 수학식 추가: $E=mc^2$ 또는 $$\\int f(x)dx$$'
-            })
         
         return issues
-
+    
     def calculate_quality_score(self, all_issues: List[Dict]) -> int:
-        """품질 점수 계산 (0-100)"""
+        """
+        품질 점수 계산 (0-100)
+        """
         score = 100
-
+        
         for issue in all_issues:
             if issue['priority'] == 'P1':
                 score -= 15
@@ -363,251 +322,128 @@ class QualityChecker:
                 score -= 5
             elif issue['priority'] == 'P3':
                 score -= 2
-
+        
         return max(0, score)
-
+    
     def check_note(self, file_path: Path) -> Tuple[int, List[Dict]]:
-        """단일 노트 검증"""
+        """
+        단일 노트 검증
+        """
         if not file_path.exists():
             return 0, []
-
+        
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
-
+        
         all_issues = []
-
+        
         # Part 1: 구조적 품질
         all_issues.extend(self.check_file_naming(file_path))
         all_issues.extend(self.check_links(content, file_path))
         all_issues.extend(self.check_sections(content, file_path))
-
+        
         # Part 2: 내용적 품질
         all_issues.extend(self.check_content_quality(content, file_path))
         all_issues.extend(self.check_clarity(content, file_path))
         all_issues.extend(self.check_connectivity(content, file_path))
         all_issues.extend(self.check_rag_optimization(content, file_path))
         all_issues.extend(self.check_example_quality(content, file_path))
-        all_issues.extend(self.check_math_requirement(content, file_path))  # ⭐ 추가!
-
+        
         # 점수 계산
         score = self.calculate_quality_score(all_issues)
-
+        
         return score, all_issues
-
-    def generate_report(self, all_issues: List[Dict], scores: Dict[str, int], 
-                       md_files: List[Path]) -> str:
-        """마크다운 보고서 생성"""
-        
-        now = datetime.now()
-        date_str = now.strftime("%Y-%m-%d %H:%M")
-        
-        report = f"""# 📊 Quality Check Report
-
-**Generated:** {date_str}  
-**Vault:** `{self.vault_path}`  
-**Invariants:** `0_Invariants.md` (Phase 5 기준)
-
----
-
-## 📈 Overall Statistics
-
-"""
-        
-        if scores:
-            avg_score = sum(scores.values()) / len(scores)
-            report += f"- **Average Quality Score:** {avg_score:.1f}/100\n"
-            report += f"- **Total Files Checked:** {len(md_files)}\n"
-            report += f"- **Files with Issues:** {len(scores)}\n"
-            report += f"- **Total Issues Found:** {len(all_issues)}\n\n"
-
-            # 등급 분포
-            excellent = sum(1 for s in scores.values() if s >= 90)
-            good = sum(1 for s in scores.values() if 75 <= s < 90)
-            fair = sum(1 for s in scores.values() if 60 <= s < 75)
-            poor = sum(1 for s in scores.values() if s < 60)
-
-            report += "### 🎯 Grade Distribution\n\n"
-            report += f"- **Excellent (90-100):** {excellent}개 ({excellent/len(scores)*100:.1f}%)\n"
-            report += f"- **Good (75-89):** {good}개 ({good/len(scores)*100:.1f}%)\n"
-            report += f"- **Fair (60-74):** {fair}개 ({fair/len(scores)*100:.1f}%)\n"
-            report += f"- **Poor (0-59):** {poor}개 ({poor/len(scores)*100:.1f}%)\n\n"
-
-        # 우선순위별 이슈
-        if all_issues:
-            p1_count = sum(1 for i in all_issues if i['priority'] == 'P1')
-            p2_count = sum(1 for i in all_issues if i['priority'] == 'P2')
-            p3_count = sum(1 for i in all_issues if i['priority'] == 'P3')
-
-            report += "### 🚨 Issues by Priority\n\n"
-            report += f"- **P1 (Critical):** {p1_count}개 - 즉시 해결 필요\n"
-            report += f"- **P2 (Important):** {p2_count}개 - 조속히 개선 권장\n"
-            report += f"- **P3 (Nice-to-have):** {p3_count}개 - 점진적 개선\n\n"
-
-            # 카테고리별 이슈
-            categories = Counter(i['category'] for i in all_issues)
-            
-            report += "### 📋 Issues by Category (Top 5)\n\n"
-            for category, count in categories.most_common(5):
-                report += f"- **{category}:** {count}개\n"
-            report += "\n"
-
-        # 낮은 점수 파일
-        if scores:
-            report += "---\n\n## 🔴 Files Requiring Attention\n\n"
-            report += "### Critical (Score < 60)\n\n"
-            
-            critical = [(name, score) for name, score in scores.items() if score < 60]
-            critical.sort(key=lambda x: x[1])
-            
-            if critical:
-                for name, score in critical[:10]:
-                    report += f"- **{name}** - {score:.0f}점\n"
-            else:
-                report += "*없음 - 모든 파일이 60점 이상입니다!* ✅\n"
-            
-            report += "\n### Needs Improvement (Score 60-74)\n\n"
-            
-            needs_improvement = [(name, score) for name, score in scores.items() if 60 <= score < 75]
-            needs_improvement.sort(key=lambda x: x[1])
-            
-            if needs_improvement:
-                for name, score in needs_improvement[:15]:
-                    report += f"- **{name}** - {score:.0f}점\n"
-            else:
-                report += "*없음 - 모든 파일이 75점 이상입니다!* ✅\n"
-
-        # 상세 이슈 (P1만)
-        if all_issues:
-            p1_issues = [i for i in all_issues if i['priority'] == 'P1']
-            
-            if p1_issues:
-                report += "\n---\n\n## ⚠️ Critical Issues (P1) - Immediate Action Required\n\n"
-                
-                for issue in p1_issues:
-                    report += f"### [{issue['file']}]\n\n"
-                    report += f"- **Category:** {issue['category']}\n"
-                    report += f"- **Issue:** {issue['issue']}\n"
-                    report += f"- **Suggestion:** {issue['suggestion']}\n\n"
-
-        # 푸터
-        report += "---\n\n"
-        report += "## 📝 Notes\n\n"
-        report += "- 이 보고서는 `0_Invariants.md` (Phase 5 기준)을 기반으로 생성되었습니다.\n"
-        report += "- P1 이슈는 노트의 핵심 기능을 저해하므로 즉시 해결이 필요합니다.\n"
-        report += "- P2 이슈는 품질 향상을 위해 조속히 개선을 권장합니다.\n"
-        report += "- P3 이슈는 점진적으로 개선하면 됩니다.\n\n"
-        report += f"**Generated by:** Enhanced Quality Checker v2.0  \n"
-        report += f"**Report Date:** {date_str}\n"
-        
-        return report
 
 
 def main():
-    """메인 실행 함수"""
+    """
+    메인 실행 함수
+    """
     print("="*60)
-    print("Enhanced Quality Checker for Obsidian RSI v2.0")
+    print("Enhanced Quality Checker for Obsidian RSI")
     print("="*60)
-
-    # Vault 경로 설정
-    vault_path = Path(r"C:\Users\win10_original\claude-vault")
-
+    
+    # Vault 경로 설정 (수정 필요)
+    vault_path = Path("C:\Users\win10_original\claude-vault")
+    
     if not vault_path.exists():
         print(f"❌ Error: Vault not found at {vault_path}")
         return
-
+    
     print(f"\n📂 Vault: {vault_path}")
-
+    
     # 모든 .md 파일 찾기
     md_files = list(vault_path.glob("**/*.md"))
-    print(f"🔍 Found {len(md_files)} markdown files")
-
+    print(f"📄 Found {len(md_files)} markdown files")
+    
     # 품질 체커 초기화
-    checker = QualityChecker(vault_path)
-
-    # 전체 검증
+    checker = QualityChecker()
+    
+    # 전체 통계
     all_issues = []
     scores = {}
-
-    print("\n🔎 Checking notes...")
-
+    
+    print("\n🔍 Checking notes...")
+    
     for file_path in md_files:
         score, issues = checker.check_note(file_path)
-
+        
         if issues:
             all_issues.extend(issues)
             scores[file_path.name] = score
-
+    
     print(f"✓ Checked {len(md_files)} files")
-    print(f"⚠️  Found {len(all_issues)} issues")
-
-    # 터미널 출력
+    print(f"✓ Found {len(all_issues)} issues")
+    
+    # 통계 출력
     print("\n" + "="*60)
     print("📊 Quality Statistics")
     print("="*60)
-
+    
     if scores:
         avg_score = sum(scores.values()) / len(scores)
         print(f"\n평균 품질 점수: {avg_score:.1f}/100")
-
+        
         # 등급별 분포
         excellent = sum(1 for s in scores.values() if s >= 90)
         good = sum(1 for s in scores.values() if 75 <= s < 90)
         fair = sum(1 for s in scores.values() if 60 <= s < 75)
         poor = sum(1 for s in scores.values() if s < 60)
-
+        
         print(f"\n등급 분포:")
         print(f"  Excellent (90-100): {excellent}개")
         print(f"  Good (75-89): {good}개")
         print(f"  Fair (60-74): {fair}개")
         print(f"  Poor (0-59): {poor}개")
-
-    # 우선순위별 이슈
+    
+    # 우선순위별 통계
     if all_issues:
         print(f"\n우선순위별 이슈:")
         p1_count = sum(1 for i in all_issues if i['priority'] == 'P1')
         p2_count = sum(1 for i in all_issues if i['priority'] == 'P2')
         p3_count = sum(1 for i in all_issues if i['priority'] == 'P3')
-
+        
         print(f"  P1 (Critical): {p1_count}개")
         print(f"  P2 (Important): {p2_count}개")
         print(f"  P3 (Nice-to-have): {p3_count}개")
-
-        # 카테고리별 이슈
+        
+        # 카테고리별 통계
+        from collections import Counter
         categories = Counter(i['category'] for i in all_issues)
-
+        
         print(f"\n카테고리별 이슈 (Top 5):")
         for category, count in categories.most_common(5):
             print(f"  {category}: {count}개")
-
-    # 낮은 점수 파일
+    
+    # 낮은 점수 파일 출력
     if scores:
-        print(f"\n🔴 개선 필요 파일 (점수 < 70):")
+        print(f"\n⚠️ 개선 필요 파일 (점수 < 70):")
         low_scores = [(name, score) for name, score in scores.items() if score < 70]
         low_scores.sort(key=lambda x: x[1])
-
-        if low_scores:
-            for name, score in low_scores[:10]:
-                print(f"  {name}: {score:.0f}점")
-        else:
-            print("  없음 - 모든 파일이 70점 이상입니다! ✅")
-
-    # 보고서 생성
-    print("\n" + "="*60)
-    print("📄 Generating Report...")
-    print("="*60)
-
-    report_content = checker.generate_report(all_issues, scores, md_files)
+        
+        for name, score in low_scores[:10]:
+            print(f"  {name}: {score:.0f}점")
     
-    # 파일 저장
-    report_filename = f"Quality_Report_{datetime.now().strftime('%Y-%m-%d')}.md"
-    report_path = vault_path / report_filename
-    
-    with open(report_path, 'w', encoding='utf-8') as f:
-        f.write(report_content)
-    
-    print(f"\n✅ Report saved: {report_filename}")
-    print(f"📍 Location: {report_path}")
-
     print("\n" + "="*60)
     print("✨ Quality check completed!")
     print("="*60)

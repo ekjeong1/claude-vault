@@ -129,28 +129,68 @@ export class VaultAnalyzer {
         return improvements;
     }
 
+    /**
+     * 메타 파일 여부 확인 (0_Invariants.md v2.2 기준)
+     * 메타 파일은 링크 체크 대상에서 제외됩니다.
+     */
+    private isMetaFile(filename: string, filepath: string): boolean {
+        const nameLower = filename.toLowerCase();
+        
+        // 1. 숫자로 시작하는 파일 (0_, 1_, 2_, 3_)
+        if (/^[0-3]_/.test(filename)) {
+            return true;
+        }
+        
+        // 2. 키워드 포함 체크
+        const metaKeywords = [
+            'report', 'summary', 'check', 'log',
+            'readme', 'changelog', 'license',
+            'index', 'guide', 'agenda', 'template',
+            'old', 'backup', 'v1', 'v2', 'v3'
+        ];
+        
+        if (metaKeywords.some(kw => nameLower.includes(kw))) {
+            return true;
+        }
+        
+        // 3. 코드/설정 파일 확장자
+        if (/\.(py|js|ts|json)$/i.test(filename)) {
+            return true;
+        }
+        
+        // 4. 특정 폴더 (기존 로직 유지)
+        if (filepath.includes('Templates') || 
+            filepath.includes('Archive') ||
+            filepath.includes('Daily')) {
+            return true;
+        }
+        
+        return false;
+    }
+
     private async findOrphans(): Promise<Improvement[]> {
         const improvements: Improvement[] = [];
         const files = this.vault.getMarkdownFiles();
         
         for (const file of files) {
+            // 메타 파일은 고아 노트 체크 제외
+            if (this.isMetaFile(file.basename, file.path)) {
+                continue;
+            }
+            
             const content = await this.vault.cachedRead(file);
             const links = this.extractLinks(content);
             
+            // 개념 노트만 링크 필수
             if (links.length === 0) {
-                if (!file.path.includes('Templates') && 
-                    !file.path.includes('Archive') &&
-                    !file.path.includes('Daily')) {
-                    
-                    improvements.push({
-                        type: 'orphan',
-                        priority: 'P2',
-                        title: `고아 노트: ${file.basename}`,
-                        description: '다른 노트와 연결이 없습니다.',
-                        file: file.path,
-                        action: 'add_links'
-                    });
-                }
+                improvements.push({
+                    type: 'orphan',
+                    priority: 'P2',
+                    title: `고아 노트: ${file.basename}`,
+                    description: '다른 노트와 연결이 없습니다.',
+                    file: file.path,
+                    action: 'add_links'
+                });
             }
         }
         

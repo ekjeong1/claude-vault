@@ -160,23 +160,62 @@ var VaultAnalyzer = class {
     }
     return improvements;
   }
+  /**
+   * 메타 파일 여부 확인 (0_Invariants.md v2.2 기준)
+   * 메타 파일은 링크 체크 대상에서 제외됩니다.
+   */
+  isMetaFile(filename, filepath) {
+    const nameLower = filename.toLowerCase();
+    if (/^[0-3]_/.test(filename)) {
+      return true;
+    }
+    const metaKeywords = [
+      "report",
+      "summary",
+      "check",
+      "log",
+      "readme",
+      "changelog",
+      "license",
+      "index",
+      "guide",
+      "agenda",
+      "template",
+      "old",
+      "backup",
+      "v1",
+      "v2",
+      "v3"
+    ];
+    if (metaKeywords.some((kw) => nameLower.includes(kw))) {
+      return true;
+    }
+    if (/\.(py|js|ts|json)$/i.test(filename)) {
+      return true;
+    }
+    if (filepath.includes("Templates") || filepath.includes("Archive") || filepath.includes("Daily")) {
+      return true;
+    }
+    return false;
+  }
   async findOrphans() {
     const improvements = [];
     const files = this.vault.getMarkdownFiles();
     for (const file of files) {
+      if (this.isMetaFile(file.basename, file.path)) {
+        continue;
+      }
       const content = await this.vault.cachedRead(file);
       const links = this.extractLinks(content);
       if (links.length === 0) {
-        if (!file.path.includes("Templates") && !file.path.includes("Archive") && !file.path.includes("Daily")) {
-          improvements.push({
-            type: "orphan",
-            priority: "P2",
-            title: `\uACE0\uC544 \uB178\uD2B8: ${file.basename}`,
-            description: "\uB2E4\uB978 \uB178\uD2B8\uC640 \uC5F0\uACB0\uC774 \uC5C6\uC2B5\uB2C8\uB2E4.",
-            file: file.path,
-            action: "add_links"
-          });
-        }
+        improvements.push({
+          type: "orphan",
+          priority: "P2",
+          title: `\uACE0\uC544 \uB178\uD2B8: ${file.basename}`,
+          description: "\uB2E4\uB978 \uB178\uD2B8\uC640 \uC5F0\uACB0\uC774 \uC5C6\uC2B5\uB2C8\uB2E4.",
+          file: file.path,
+          action: "add_links"
+        });
       }
     }
     return improvements;
